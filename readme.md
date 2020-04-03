@@ -50,7 +50,7 @@
 |GET| /poems/:id | Send poem info |
 |PUT| /poems/:id | Edit poem |
 |DELETE | /poems/:id | Delete poem |
-|POST| /poems/:id/lyrics | Add a new lyric |
+|POST| /poems/:id | Add a new lyric |
 |DELETE| /poems/:id/lyrics/:id | Delete a lyric |
 |POST| /auth/login | Log user in
 |POST| /auth/signup | Create new user
