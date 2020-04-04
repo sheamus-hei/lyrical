@@ -73,10 +73,11 @@
 ### Friday
 * Planned schemas
 * Planned front and back end routes
-* Established initial file structure
+* Established initial file structure 
+* Stubs for routes in front and back end
  
 ### TO DO:
 
-* Make initial file structure: front end
-* Make initial files structure: back end
+* Song results page aka Genius API calls aka OAuth2
 * import Mern Auth to front end
+
