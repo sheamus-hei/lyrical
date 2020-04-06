@@ -68,6 +68,13 @@
 |/auth/login| Form to login | 
 |/auth/signup| Form to sign up | 
 
+## Tech
+
+### Genius API
+1. Using User Query from searchbar, query Genius API to show a list of songs in /results
+2. Each song result will have a generic http path to the lyrics page. Pass this path to the backend.
+3. Backend uses python data scraping to get the lyrics and return them to the front end page, /results/:id
+
 ## Diary
 
 ### Friday
@@ -75,9 +82,18 @@
 * Planned front and back end routes
 * Established initial file structure 
 * Stubs for routes in front and back end
+
+### Sat/Sun
+* Built functioning React routes with page stubs
+* Researched OAuth with Genius API and React
+
+### Mon
+* Generated Auth Token to get song results from api
  
 ### TO DO:
 
 * Song results page aka Genius API calls aka OAuth2
 * import Mern Auth to front end
-
+* back end models etc
+* back end flask routes
+* display poems, profile on front end

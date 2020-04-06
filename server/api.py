@@ -7,6 +7,7 @@ def unhandled_exception(e):
     app.logger.error('Unhandled Exception: %s')
     return jsonify(error='Server Error')
 
+
 @app.route('/profile', methods=['GET', 'PUT'])
 def profile_get_put():
     # if request.method == 'GET':
