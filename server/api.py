@@ -1,12 +1,18 @@
-from models import app, User, Lyric, Poem, get_or_create
+#from models import app, User, Lyric, Poem, get_or_create
 from flask import jsonify, request
+from testAPI import lyrics_from_url
 # from crud.user_crud import (CRUD METHODS HERE)
 
-@.errorhandler(Exception)
+@errorhandler(Exception)
 def unhandled_exception(e):
     app.logger.error('Unhandled Exception: %s')
     return jsonify(error='Server Error')
 
+# data scraping. see testAPI for details
+@app.route('/songs/<str:id>', methods=['GET'])
+def get_song_lyrics():
+    if request.method== 'GET':
+        return lyrics_from_url(id)
 
 @app.route('/profile', methods=['GET', 'PUT'])
 def profile_get_put():

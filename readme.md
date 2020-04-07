@@ -22,7 +22,7 @@
 |--------|------|-------|
 | Id | Integer | PK |
 | Title | String | Required |
-| Lyrics | List of FK | 
+| Emoji | String | 
 | Public | Boolean | 
 
 ### 3. Lyric (1: Poem: Many Lyrics)
@@ -32,7 +32,8 @@
 | SongID | Integer | Song ID for Genius API
 | ArtistID | Integer | Artist ID for Genius API |
 | AnnotationID | Integer | Annotation ID for Genius API |
-| Content | String 
+| Content | String |
+| Order | Integer |
 | PoemID| FK | 
 
 
@@ -74,6 +75,7 @@
 1. Using User Query from searchbar, query Genius API to show a list of songs in /results
 2. Each song result will have a generic http path to the lyrics page. Pass this path to the backend.
 3. Backend uses python data scraping to get the lyrics and return them to the front end page, /results/:id
+4. Front End renders song lyrics from back end, with artist and title
 
 ## Diary
 
