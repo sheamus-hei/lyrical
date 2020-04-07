@@ -15,26 +15,26 @@
 | Id | Integer | PK |
 | Name | String | Required|
 | Email | String | Required, Unique |
-| Poems| | List of FK |
+| Password | Password | Limit 8-30 char
 
 ### 2. Poem (1 user: Many Poems)
 | Column | Type | Other |
 |--------|------|-------|
 | Id | Integer | PK |
 | Title | String | Required |
-| Emoji | String | 
 | Public | Boolean | 
+| UserID | Integer | FK
 
 ### 3. Lyric (1: Poem: Many Lyrics)
 | Column | Type | Other |
 |--------|------|-------|
 | Id | Integer | PK |
-| SongID | Integer | Song ID for Genius API
-| ArtistID | Integer | Artist ID for Genius API |
-| AnnotationID | Integer | Annotation ID for Genius API |
+| Song | String | 
+| Artist | String | 
+| Thumbnail | String |
 | Content | String |
 | Order | Integer |
-| PoemID| FK | 
+| PoemID| Integer | FK
 
 
 
@@ -89,13 +89,17 @@
 * Built functioning React routes with page stubs
 * Researched OAuth with Genius API and React
 
-### Mon
+### Monday
 * Generated Auth Token to get song results from api
+* Finished /results page that shows song results from Genius api based on the user query
+* Successfully tested data scraping in python to get lyrics from Genius
+
+### Tuesday
+* Successfully displaying lyrics on the React front end
  
 ### TO DO:
 
-* Song results page aka Genius API calls aka OAuth2
+* write backend models & routes
+* implement auth back end
 * import Mern Auth to front end
-* back end models etc
-* back end flask routes
 * display poems, profile on front end

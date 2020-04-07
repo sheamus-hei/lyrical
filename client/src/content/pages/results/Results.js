@@ -20,12 +20,11 @@ export default function Results(props) {
         .then(response => {
             if (response.data) {
                 setSongs(response.data.response.hits.map(hit => {
-                    console.log("HIT Result", hit.result)
                     if (hit.type == "song") {
                         return hit.result
                     }
                 }))
-                console.log("⭐️", songs)
+                // console.log("⭐️", songs)
             } 
         }).catch(err => console.log('💥', err));
     }

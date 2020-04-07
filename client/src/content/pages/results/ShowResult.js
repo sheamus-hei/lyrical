@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 export default function ShowResult(props) {
-    const [lyrics, setLyrics] = ("");
-    const [error, setError] = 
+    const [lyrics, setLyrics] = useState([]);
+    const [error, setError] = useState(null)
 
     useEffect(() => {
         if (props.songInfo && props.songInfo.link) {
+            console.log("SONG INFO MADE IT", props.songInfo)
             axios.get(`${process.env.REACT_APP_SERVER_URL}/songs/${props.songInfo.link}`)
             .then(response => {
                 if (response.data.message) {
@@ -14,7 +15,7 @@ export default function ShowResult(props) {
                     console.log(response.data.err);
                 } else {
                     console.log("DAT DATA BE:", response.data);
-                    setSong(response.data);
+                    setLyrics(response.data.lyrics);
                 }
             }).catch(err => {
                 setError(err);
@@ -23,7 +24,7 @@ export default function ShowResult(props) {
         }
     }, [])
 
-    let lyricBody = props.songinfo? "" : (
+    let lyricBody = !lyrics? "" : (
         lyrics.map(line => {
             return <p>{line}</p>
         })

@@ -1,5 +1,7 @@
+#!/usr/bin/env python3
+
 # source: https://bigishdata.com/2016/09/27/getting-song-lyrics-from-geniuss-api-scraping/
-# I borrowed this from a blog to data scrape lyrics bc genius API is dumb and doesn't include lyrics the absolute weirdos
+# I borrowed this from a blog to data scrape lyrics because the genius API doesn't include lyrics
 import requests
 from bs4 import BeautifulSoup
 
@@ -13,6 +15,6 @@ def lyrics_from_url(page_url):
   lyrics = lyrics.split('\n')
   return lyrics
 
-# if __name__ == "__main__":
-#   search_url = "Kendrick-lamar-humble-lyrics"
-#   print(lyrics_from_url(search_url))
+if __name__ == "__main__":
+  search_url = "Kendrick-lamar-humble-lyrics"
+  print(lyrics_from_url(search_url))

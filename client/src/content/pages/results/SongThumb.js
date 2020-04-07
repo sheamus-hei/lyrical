@@ -13,7 +13,7 @@ export default function SongThumb(props) {
     return (
         <div>
             <img src={props.img} alt="thumbnail image" />
-            <Link to={`/Results/${props.link}`} onClick={handleLinkClick}>
+            <Link to={`/results/${props.link}`} onClick={handleLinkClick}>
                 <h2>{props.title}</h2>
             </Link>
             <h3>by {props.artist}</h3>
