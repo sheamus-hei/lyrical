@@ -29,10 +29,11 @@
 | Column | Type | Other |
 |--------|------|-------|
 | Id | Integer | PK |
-| Song | String | 
+| Song | String |
 | Artist | String | 
 | Thumbnail | String |
 | Content | String |
+| Annotation | String |
 | Order | Integer |
 | PoemID| Integer | FK
 
@@ -55,6 +56,7 @@
 |DELETE| /poems/:id/lyrics/:id | Delete a lyric |
 |POST| /auth/login | Log user in
 |POST| /auth/signup | Create new user
+| - | /auth/logout | Log user out
 
 ### Front End (React Components)
 | Address | Description|
@@ -96,10 +98,13 @@
 
 ### Tuesday
 * Successfully displaying lyrics on the React front end
+* Wrote models for User, Poem, and Lyrics
+* Started to implement flask auth
+* Wrote React Components for auth on front end
  
 ### TO DO:
 
-* write backend models & routes
+* write backend crud
 * implement auth back end
 * import Mern Auth to front end
 * display poems, profile on front end

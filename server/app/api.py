@@ -1,13 +1,9 @@
 #!/usr/bin/env python3
-from models import app
-#, User, Lyric, Poem, get_or_create
+from models import app, User, Lyric, Poem, get_or_create
 from flask import jsonify, request
 # from crud.user_crud import (CRUD METHODS HERE)
 import requests
 from bs4 import BeautifulSoup
-from flask_cors import CORS
-
-CORS(app)
 
 
 @app.errorhandler(Exception)
