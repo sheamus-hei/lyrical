@@ -51,13 +51,10 @@ export default function Results(props) {
                 <input type="text" placeholder="Search for a song or artist" onChange={e => setQuery(e.target.value)}/>
                 <button type="submit">🔍</button>
             </form>
-            {/* <Switch> */}
-                <div>
-                    <h2>Results:</h2>
-                    {songLinks}
-                </div>
-                {/* <Route path="/poems/new" render={() => <NewPoem user={props.user} />} /> */}
-            {/* </Switch> */}
+            <div>
+                <h2>Results:</h2>
+                {songLinks}
+            </div>
         </div>
     )
 }

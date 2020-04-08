@@ -23,7 +23,7 @@ export default function Nav(props) {
         </span>
     )
 
-    if (props.user {
+    if (props.user) {
         links = (
             <span>
                 <li className="fancy">Welcome, {props.user.name}</li>
@@ -35,7 +35,7 @@ export default function Nav(props) {
                 </li>
             </span>
         )
-    })
+    }
 
     return (
         <nav>

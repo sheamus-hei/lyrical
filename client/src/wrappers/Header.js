@@ -10,7 +10,7 @@ export default function Header(props) {
                     <h1>Genius Poetry Corner</h1>
                 </Link>
             </div>
-            <Nav />
+            <Nav user={props.user} />
         </header>
     )
 }

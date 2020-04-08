@@ -10,11 +10,11 @@ bp = Blueprint('auth', __name__, url_prefix='/auth')
 @bp.route('/login', methods=['POST'])
 def login():
     if method == 'POST':
-    email = request.form.get('email')
-    password = request.form.get('password')
-    remember = True if request.form.get('remember') else False
+        email = request.form.get('email')
+        password = request.form.get('password')
+        remember = True if request.form.get('remember') else False
 
-    user = User.query.filter_by(email=email).first()
+        user = User.query.filter_by(email=email).first()
 
     if not user or not check_password_hash(user.password, pasword):
         flash('Please check in your login credentials and try again.')
