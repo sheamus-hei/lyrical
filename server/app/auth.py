@@ -1,34 +1,47 @@
-import functools
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
 from werkzeug.security import check_password_hash, generate_password_hash
-from app.models import db
+from flask_login import login_user, logout_user, login_required
+from app.models import db, User
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.get(user_id)
-
-@bp.route('/login', methods=('GET', 'POST'))
+@bp.route('/login', methods=['POST'])
 def login():
-    form = LoginForm()
-    if form.validate_on_submit():
-        login_user(user)
-        flask.flash('Logged in successfully')
+    if method == 'POST':
+    email = request.form.get('email')
+    password = request.form.get('password')
+    remember = True if request.form.get('remember') else False
 
-        next = flask.request.args.get('next')
-        if not is_safe_url(next):
-            return flask.abort(400)
+    user = User.query.filter_by(email=email).first()
 
-        return flask.redirect(next or flask.url_for('index'))
-    return flask.render_template('login.html', form=form)
+    if not user or not check_password_hash(user.password, pasword):
+        flash('Please check in your login credentials and try again.')
+        return redirect(url_for('api.login'))
 
-@bp.route('/signup', methods=('GET', 'POST'))
-def register():
-    pass
+    login_user(user, remember=remember)
 
+    return redirect(url_for('bp.profile'))
+
+@bp.route('/signup', methods=['POST'])
+def signup():
+    email = request.form.get('email')
+    name = request.form.get('name')
+    password = request.form.get('password')
+
+    user = User.query.filter_by(email=email).first()
+
+    if user:
+        flash('Email address already exists.')
+        return redirect(url_for('bp.login'))
+
+    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'))
+
+    db.session.add(new_user)
+    db.session.commit()
+
+    return redirect(url_for('bp.profile'))
 
 @bp.route('/logout')
 @login_required

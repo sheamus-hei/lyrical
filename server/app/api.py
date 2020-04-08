@@ -22,33 +22,40 @@ def get_song_lyrics(id):
         lyrics = lyrics.split('\n')
         return jsonify(lyrics=lyrics)
 
-# @app.route('/profile', methods=['GET', 'PUT'])
-# def profile_get_put():
-#     # if request.method == 'GET':
-#     #     return get_all_users()
-#     # if request.method == 'PUT':
-#     #     return update_user(
-#     #         name=request.form['name'],
-#     #         email=request.form['email']
-#     #     )
-#     pass
 
-# @app.route('/poems', methods=['GET', 'POST'])
-# def poems_get_post():
-#     pass
+@app.route('/poems', methods=['GET'])
+def poems_get():
+    # get all public poems for homepage
+    pass
 
-# @app.route('/poems/<int:id>', methods=['GET', 'POST', 'PUT', 'DELETE'])
-# def poem_get_post_put_delete():
-#     pass
+@app.route('/poems/<int:id>', methods=['GET'])
+def poem_get(id):
+    # get a poem
+    pass
 
-# @app.route('/poems/<int:id>/lyrics/<int:l_id>', methods=['DELETE'])
-# def poem_lyric_delete():
-#     pass
+@app.route('/profile', methods=['GET', 'POST'])
+@login_required
+def poems_user_get_post():
+    if request.method == 'GET':
+        #get user poems
+    if request.method == 'POST':
+        #post a new poem
 
-# @app.route('/auth/login', methods=['POST'])
-# def login():
-#     pass
+@app.route('/poems/<int:id>', methods=['GET', 'POST', 'PUT', 'DELETE'])
+@login_required
+def poem_post_put_delete(id):
+    if request.method == 'POST':
+        # add a song lyric to the poem
+    if request.method == 'PUT':
+        # edit the poem (i.e. the title, is public)
+    if request.method == 'DELETE':
+        # delete the poem
 
-# @app.route('/auth/signup', methods=['POST'])
-# def login():
-#     pass
+@app.route('/poems/<int:id>/lyrics/<int:lyr_id>', methods=['PUT', 'DELETE'])
+@login_required
+def lyric_put_delete(id, lyr_id):
+    if request.method == 'PUT'
+        # update the lyric (i.e. the annotation)
+    if request.method == 'DELETE'
+        # DELETE THE LYRIC
+
