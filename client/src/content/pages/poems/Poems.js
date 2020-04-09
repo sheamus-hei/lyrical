@@ -22,7 +22,7 @@ export default function Poems(props) {
     }, [])
 
     let poemLinks = !poems? "": poems.map(poem => {
-        return <Thumbnail id={poem.id} title={poem.title} authorId={poem.user_id}/>
+        return <Thumbnail id={poem.id} title={poem.title} authorId={poem.user_id} public={true}/>
     })
 
     return (

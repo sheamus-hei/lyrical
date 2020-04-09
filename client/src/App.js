@@ -13,7 +13,7 @@ function App() {
     email: "erik@test.com",
     password: "password"
   })
-  //let [user, updateUser] = useState(null)
+  // let [user, updateUser] = useState(null)
 
   // useEffect(() => {
   //   decodeToken();

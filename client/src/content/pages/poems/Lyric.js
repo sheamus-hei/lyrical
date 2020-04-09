@@ -22,14 +22,14 @@ export default function Lyric(props) {
 
     let display = (
         <div>
-            <p class="gray-bg">{props.lyric.content}</p>
+            <p className="gray-bg">{props.lyric.content}</p>
         </div>
     );
 
     if (clicked) {
         display = (
             <div>
-                <p class="hightlight"><b>{props.lyric.content}</b></p>
+                <p className="hightlight"><b>{props.lyric.content}</b></p>
                 <SongThumb 
                     img={props.lyric.thumbnail} 
                     link={props.lyric.path} 

@@ -45,10 +45,13 @@ export default function ShowPoem(props) {
             )
         });
     
+    let hiddenMessage = props.poem && props.poem.public ? "": (<p>This is a secret song</p>)
+    
     return (
         <div>
             <h1>{title}</h1>
             <h2>by {author}</h2>
+            {hiddenMessage}
             {editButton}
             {lyricsList}
         </div>

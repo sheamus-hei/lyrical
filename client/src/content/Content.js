@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 // import pages here
@@ -22,7 +22,7 @@ export default function Content(props) {
                 <Route exact path="/" component={Poems} />
                 <Route path="/profile/edit" render={() => <EditProfile user={props.user} updateUser={props.updateUser}/>} />
                 <Route path="/profile" render={() => <Profile user={props.user} />} />
-                <Route path="/results/:id" render={() => <ShowResult songInfo={props.songInfo} />} />
+                <Route path="/results/:id" render={() => <ShowResult songInfo={props.songInfo} user={props.user} />} />
                 <Route path="/results" render={() => <Results songInfo={props.songInfo} setSongInfo={props.setSongInfo} />} />
                 <Route path="/poems/edit" render={() => <EditPoem user={props.user} />} />
                 <Route path="/poems/new" render={() => <NewPoem user={props.user} />} />

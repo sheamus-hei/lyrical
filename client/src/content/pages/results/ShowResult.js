@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import AddLyric from './AddLyric';
 
 export default function ShowResult(props) {
     const [lyrics, setLyrics] = useState([]);
@@ -22,11 +23,18 @@ export default function ShowResult(props) {
                 console.log(err);
             });
         }
+        // TEST: REMOVE
+        setLyrics([
+            "Everyone else in the room can see it",
+            "Everyone else but you",
+            "Baby you light up my world like nobody else",
+            "The way that you flip your wig gets me overwhelmed"
+        ])
     }, [])
 
     let lyricBody = !lyrics? "" : (
         lyrics.map(line => {
-            return <p>{line}</p>
+            return <p>{line}<AddLyric line={line} songInfo={props.songInfo} user={props.user}/></p>
         })
     )
 
