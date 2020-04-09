@@ -34,6 +34,10 @@ def poem_get(id):
     # get a poem
     return get_poem(id)
 
+@app.route('/users/<int:id>')
+def get_user(id):
+    return get_user(id)
+
 @app.route('/profile/<int:user_id>', methods=['GET', 'POST', 'PUT'])
 @login_required
 def poems_user_get_post(user_id):

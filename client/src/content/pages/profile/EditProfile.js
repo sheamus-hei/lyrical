@@ -44,10 +44,6 @@ export default function Signup(props) {
     })
   }
 
-  if (props.user) {
-    return <Redirect to="/profile" />
-  }
-
   return (
     <div>
       <h2>Edit Profile</h2>

@@ -32,6 +32,7 @@
 | Song | String |
 | Artist | String | 
 | Thumbnail | String |
+| Path | String |
 | Content | String |
 | Annotation | String |
 | Order | Integer |
@@ -79,7 +80,7 @@
 3. Backend uses python data scraping to get the lyrics and return them to the front end page, /results/:id
 4. Front End renders song lyrics from back end, with artist and title
 
-## Diary
+## Project Log
 
 ### Friday
 * Planned schemas
@@ -101,10 +102,17 @@
 * Wrote models for User, Poem, and Lyrics
 * Started to implement flask auth
 * Wrote React Components for auth on front end
+
+### Wednesday
+* Struggled with flask/React auth
+* Wrote back end flask/SQLAlchemy crud methods and routes
+* Worked on front end React components for profile and poems pages
+
  
 ### TO DO:
 
-* write backend crud
-* implement auth back end
-* import Mern Auth to front end
+* test backend crud
+* fix auth
 * display poems, profile on front end
+* edit poems
+* add axios calls on front end
