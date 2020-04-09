@@ -1,6 +1,7 @@
 // Packages
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 
 export default function Signup(props) {
   // Declare and initialize state variables
@@ -9,7 +10,6 @@ export default function Signup(props) {
   let [message, setMessage] = useState('')
   let [password, setPassword] = useState('')
 
-
   useEffect(()=> {
     setMessage("");
   }, [email, name, password])
@@ -17,17 +17,15 @@ export default function Signup(props) {
   const handleSubmit = e => {
     e.preventDefault()
     // TODO: Send the user sign up data to the server
-    fetch(`${process.env.REACT_APP_SERVER_URL}/auth/signup`, {
-      method: 'POST',
-      body: JSON.stringify({
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/auth/signup`, {
         name,
         email,
         password
-      }),
-      headers: {
+      },
+      {
         'Content-Type': 'application/json'
       }
-    }).then(response => {
+    ).then(response => {
       if (!response.ok) {
         console.log(response);
         setMessage(`${response.status}: ${response.statusText}`);

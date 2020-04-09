@@ -24,16 +24,19 @@ export default function ShowResult(props) {
             });
         }
         // TEST: REMOVE
-        setLyrics([
-            "Everyone else in the room can see it",
-            "Everyone else but you",
-            "Baby you light up my world like nobody else",
-            "The way that you flip your wig gets me overwhelmed"
-        ])
+        // setLyrics([
+        //     "Everyone else in the room can see it",
+        //     "Everyone else but you",
+        //     "Baby you light up my world like nobody else",
+        //     "The way that you flip your wig gets me overwhelmed"
+        // ])
     }, [])
 
     let lyricBody = !lyrics? "" : (
         lyrics.map(line => {
+            if (!line || line[0] == '[') {
+                return <p><strong>{line}</strong></p>
+            }
             return <p>{line}<AddLyric line={line} songInfo={props.songInfo} user={props.user}/></p>
         })
     )

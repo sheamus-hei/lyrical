@@ -3,15 +3,15 @@ import { Redirect } from 'react-router-dom';
 
 export default function NewPoem(props) {
     const [title, setTitle] = useState('')
-    const [public, setPublic] = useState(false)
+    const [publicValue, setPublicValue] = useState(false)
     let [message, setMessage] = useState("");
 
     useEffect(() => {
         setMessage("");
-    }, [title, public])
+    }, [title, publicValue])
 
     const handleCheck = e => {
-        e.target.checked? setPublic(true) : setPublic(false)
+        e.target.checked? setPublicValue(true) : setPublicValue(false)
     }
 
     const handleSubmit = e => {
@@ -20,7 +20,7 @@ export default function NewPoem(props) {
         //     method: 'POST',
         //     body: JSON.stringify({
         //         title,
-        //         public,
+        //         publicValue,
         //         user_id: 1
         //     })
         // }).then(response => {
@@ -31,7 +31,7 @@ export default function NewPoem(props) {
         //     } else {
         //         setRedirect(<Redirect to={`/`} />)    
         // })
-        return (<Redirect to="/profile")
+        return (<Redirect to="/profile" />)
     }
 
     if(!props.user) {

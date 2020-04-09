@@ -7,7 +7,8 @@ const Login = props => {
   let [email, setEmail] = useState('')
   let [message, setMessage] = useState('')
   let [password, setPassword] = useState('')
-
+  let [redirect, setRedirect] = useState(false)
+  
   useEffect(() => {
     setMessage('')
   }, [email, password]);
@@ -33,7 +34,7 @@ const Login = props => {
         return;
       }
       // if authenticated, updateUser + redirect to profile
-      props.setUserToken(rsponse.data.user, response.data.token)
+      props.setUserToken(response.data.user, response.data.token)
       setRedirect(true)
       response.json().then(result => {
         props.updateUser(result.token);
