@@ -1,9 +1,24 @@
 from flask import Flask
-from app import db
+from flask_sqlalchemy import SQLAlchemy
+from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+from passlib.apps import custom_app_context as pwd_context
 from flask_login import UserMixin
-# from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 
-# db = SQLAlchemy()
+app=Flask(__name__)
+
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_ECHO'] = True
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/lyrical'
+app.config['SECRET_KEY'] = 'mysecretkey'
+app.config['CORS_HEADERS'] = 'Content-Type'
+cors = CORS(app, resources={
+    r'/*': {
+        'origins': 'http://localhost:3000'
+    }
+})
+
+db = SQLAlchemy(app)
 
 class User(UserMixin, db.Model):
     __tablename__='users'
@@ -11,7 +26,7 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String, unique=True, nullable=False)
     name = db.Column(db.String, default="Anonymous Poet") 
-    password = db.Column(db.String(30))
+    password = db.Column(db.String, nullable=False)
 
     poems = db.relationship('Poem', backref='user', lazy=True)
 
@@ -19,7 +34,20 @@ class User(UserMixin, db.Model):
         return f'User(id={self.id}, email={self.email}, name={self.name})'
     
     def as_dict(self):
-        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+        user_dict = {c.name: getattr(self, c.name) for c in self.__table__.columns}
+        del user_dict['password']
+        return user_dict
+
+    def set_password(self, password):
+        self.password = pwd_context.encrypt(password)
+
+    def verify_password(self, typed_password):
+        return pwd_context.verify(typed_password, self.password)
+
+    def generate_token(self, expiration=60*10):
+        s = Serializer(app.config['SECRET_KEY'], expires_in=expiration)
+        return s.dumps({ 'id': self.id })
+
 
 class Poem(db.Model):
     __tablename__='poems'

@@ -8,12 +8,17 @@ import Content from './content/Content';
 
 function App() {
   const [songInfo, setSongInfo] = useState({});
-  let [user, updateUser] = useState({
-    name: "Erik",
-    email: "erik@test.com",
-    password: "password"
-  })
-  // let [user, updateUser] = useState(null)
+  const [user, updateUser] = useState(null)
+
+  // let [user, updateUser] = useState({
+  //   name: "Erik",
+  //   email: "erik@test.com",
+  //   password: "password"
+  // })
+
+  const setUserToken = (responseData) => {
+    updateUser({user: responseData.user, token: responseData.token})
+  }
 
   // useEffect(() => {
   //   decodeToken();

@@ -33,6 +33,8 @@ const Login = props => {
         return;
       }
       // if authenticated, updateUser + redirect to profile
+      props.setUserToken(rsponse.data.user, response.data.token)
+      setRedirect(true)
       response.json().then(result => {
         props.updateUser(result.token);
       })

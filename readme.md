@@ -107,8 +107,13 @@
 * Struggled with flask/React auth
 * Wrote back end flask/SQLAlchemy crud methods and routes
 * Worked on front end React components for profile and poems pages
+* Drew wireframes
 
- 
+### Thursday
+* Implemented auth in flask
+* Added React components to add a lyric
+
+
 ### TO DO:
 
 * test backend crud

@@ -1,4 +1,4 @@
-from flask import jsonify, redirect
+from flask import jsonify, redirect, g
 from models import db, User
 
 def error(err_locale, error):
@@ -15,14 +15,21 @@ def get_user(id):
     except Exception as error:
         return error('getting a user', error)
 
-def create_user(name, email, password):
-    try:
-        new_user = User(name=name, email=email, password=password)
-        db.session.add(new_user)
-        db.session.commit()
-        return jsonify(new_user.as_dict())
-    except Exception as error:
-        return error('creating a user', error)
+def create_user(**kwargs):
+    name=kwargs['name']
+    email=kwargs['email']
+    password=kwargs['password']
+    if not name or not email or not password:
+        raise Exception('Name, email, and password are required')
+    if User.query.filter_by(email=email).first() is not None:
+        raise Exception('There is already a user with this email')
+    new_user = User(**kwargs)
+    new_user.set_password(password)
+    db.session.add(new_user)
+    db.session.commit()
+    g.user = new_user
+    token = new_user.generate_token()
+    return jsonify(user=new_user.as_dict(), token=token.decode('ascii'))
 
 def update_user(id, name, email, password):
     try: 
