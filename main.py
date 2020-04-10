@@ -88,10 +88,9 @@ def poems_user_get_post(user_id):
         return get_user_poems(user_id)
     if request.method == 'POST':
         #post a new poem
-        print("POSTIN 🏆")
         return create_poem(
-            title=request.form['title'],
-            public=request.form['publicValue'],
+            title=request.json['title'],
+            public=request.json['publicValue'],
             user_id=user_id
         )
     if request.method == 'PUT':
@@ -109,12 +108,12 @@ def poem_post_put_delete(id):
     if request.method == 'POST':
         # add a song lyric to the poem
         return create_lyric(
-            song=request.form['song'],
-            artist=request.form['artist'],
-            thumbnail=request.form['thumbnail'],
-            content=requst.form['content'],
-            annotation=requst.form['annotation'],
-            order=requst.form['order'],
+            song=request.json['song'],
+            artist=request.json['artist'],
+            thumbnail=request.json['thumbnail'],
+            content=request.json['content'],
+            path=request.json['path'],
+            order=request.json['order'],
             poem_id=id
         )
     if request.method == 'PUT':

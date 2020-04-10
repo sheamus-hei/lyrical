@@ -37,7 +37,7 @@ export default function ShowResult(props) {
             if (!line || line[0] == '[') {
                 return <p><strong>{line}</strong></p>
             }
-            return <p>{line}<AddLyric line={line} songInfo={props.songInfo} user={props.user}/></p>
+            return <p>{line}<AddLyric line={line} songInfo={props.songInfo} user={props.user} token={props.token} /></p>
         })
     )
 

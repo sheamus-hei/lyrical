@@ -4,8 +4,9 @@ import axios from 'axios';
 
 export default function NewPoem(props) {
     const [title, setTitle] = useState('')
-    const [publicValue, setPublicValue] = useState(false)
-    let [message, setMessage] = useState("");
+    const [publicValue, setPublicValue] = useState(false);
+    const [message, setMessage] = useState("");
+    const [redirect, setRedirect] = useState(false);
 
     useEffect(() => {
         setMessage("");
@@ -27,9 +28,9 @@ export default function NewPoem(props) {
                 }
             })
             .then(response => {
-                if (response.data.results) {
-                    return (<Redirect to="/profile" />);
-                } else if (response.data.error) {
+                if (!response.data.error) {
+                    setRedirect(true);
+                } else {
                     setMessage(response.data.error);
                 }
             }).catch(err => {
@@ -43,6 +44,9 @@ export default function NewPoem(props) {
         return <Redirect to='/' />
     }
     
+    if (redirect) {
+        return <Redirect to="/profile" />
+    }
     return (
         <div>
             <p>{message}</p>
