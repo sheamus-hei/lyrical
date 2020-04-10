@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 // pass a poem object with title and id, and author id
 export default function Thumbnail(props) {
@@ -7,12 +8,20 @@ export default function Thumbnail(props) {
 
     useEffect(() => {
         // use axios call to get author name 
-        console.log("AUTHORID", props.authorId)
-        if (props.authorId == 1) {
-            setAuthor('Erik')
-        } else {
-            setAuthor('Sarah')
-        }
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${props.authorId}`)
+        .then(response => {
+            if (response.data.result) {
+                setAuthor(response.data.result.name)
+            }
+        }).catch(err => {
+            console.log(err)
+        })
+        // TEST DATA
+        // if (props.authorId == 1) {
+        //     setAuthor('Erik')
+        // } else {
+        //     setAuthor('Sarah')
+        // }
     }, []);
 
     return (

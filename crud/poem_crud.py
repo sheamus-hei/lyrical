@@ -9,9 +9,9 @@ def error(err_locale, error):
 # gets all public poems
 def get_all_poems():
     try:
-        all_poems = Poem.query.filter_by(public == True).all()
+        all_poems = Poem.query.filter_by(public=True).all()
         results = [poem.as_dict() for poem in all_poems]
-        return jsonify(results)
+        return jsonify(results=results)
     except Exception as error:
         return error('getting all poems', error)
 
@@ -22,9 +22,9 @@ def get_user_poems(user_id):
         if poems: 
             print("GOT USER POEMS 🦖")
             results = [poem.as_dict() for poem in poems]
-            return jsonify(results)
+            return jsonify(results=results)
         else: 
-            return jsonify("couldn't find poems for user id", user_id)
+            return jsonify(error=f"couldn't find poems for user id {id}")
     except Exception as error:
         return error('getting poems for user', error)
 
@@ -33,14 +33,15 @@ def get_poem(id):
     try: 
         poem = Poem.query.get(id)
         if poem: 
-            lyrics = Lyric.query.filter_by(poem_id == id).all()
-            results = {
-                "poems": poem.as_dict(),
+            lyrics = Lyric.query.filter_by(poem_id=id).all()
+            print("🎻HERES YOUR lyric", lyrics)
+            result = {
+                "poem": poem.as_dict(),
                 "lyrics": [lyric.as_dict() for lyric in lyrics]
             }
-            return jsonify(results)
+            return jsonify(result=result)
         else:
-            return jsonify("No poem found at id", id)
+            return jsonify(error=f"No poem found at id {id}")
     except Exception as error:
         return error('getting a poem', error)
 
@@ -52,7 +53,7 @@ def create_poem(title, public, user_id):
         db.session.add(new_poem)
         print("COMMITTING DAT POEM")
         db.session.commit()
-        return jsonify(new_poem.as_dict())
+        return jsonify(results=new_poem.as_dict())
     except Exception as error:
         return error('creating a poem')
 

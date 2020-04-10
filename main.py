@@ -12,25 +12,6 @@ from flask_httpauth import HTTPTokenAuth
 
 auth = HTTPTokenAuth('Bearer')
 
-
-
-# login_manager = LoginManager()
-# login_manager.login_view = 'auth.login'
-# login_manager.init_app(app)
-
-
-# @login_manager.user_loader
-# def load_user(user_id):
-#     return User.query.get(int(user_id))
-
-# from . import auth
-# app.register_blueprint(auth.bp)
-
-# from .api import app as main_blueprint
-# app.register_blueprint(main_blueprint)
-
-
-    
 @app.errorhandler(Exception)
 def unhandled_exception(e):
     app.logger.error(f'Unhandled Exception: {e}')
@@ -90,16 +71,16 @@ def poems_get():
     return get_all_poems()
 
 @app.route('/poems/<int:id>')
-def poem_get(id):
+def poem_get_one(id):
     # get a poem
     return get_poem(id)
 
 @app.route('/users/<int:id>')
-def get_user(id):
+def user_get_one(id):
     return get_user(id)
 
 @app.route('/profile/<int:user_id>', methods=['GET', 'POST', 'PUT'])
-#@auth.login_required
+@auth.login_required
 def poems_user_get_post(user_id):
     if request.method == 'GET':
         #get user poems
@@ -107,9 +88,10 @@ def poems_user_get_post(user_id):
         return get_user_poems(user_id)
     if request.method == 'POST':
         #post a new poem
+        print("POSTIN 🏆")
         return create_poem(
             title=request.form['title'],
-            public=request.form['public'],
+            public=request.form['publicValue'],
             user_id=user_id
         )
     if request.method == 'PUT':

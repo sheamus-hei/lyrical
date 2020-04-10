@@ -52,7 +52,7 @@ export default function Results(props) {
                 <button type="submit">🔍</button>
             </form>
             <div>
-                <h2>Results:</h2>
+                {songs.length==0? "":(<h2>Results for {query}:</h2>)}
                 {songLinks}
             </div>
         </div>

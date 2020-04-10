@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 
 export default function NewPoem(props) {
     const [title, setTitle] = useState('')
@@ -15,23 +16,27 @@ export default function NewPoem(props) {
     }
 
     const handleSubmit = e => {
-        // e.preventDefault()
-        // fetch(`${process.env.REACT_APP_SERVER_URL}/profile`, {
-        //     method: 'POST',
-        //     body: JSON.stringify({
-        //         title,
-        //         publicValue,
-        //         user_id: 1
-        //     })
-        // }).then(response => {
-        //     if (!response.ok) {
-        //         console.log(response);
-        //         setMessage(`${response.status}: ${response.statusText}`);
-        //         return;
-        //     } else {
-        //         setRedirect(<Redirect to={`/`} />)    
-        // })
-        return (<Redirect to="/profile" />)
+        e.preventDefault();
+        if (props.user) {
+            axios.post(`${process.env.REACT_APP_SERVER_URL}/profile/${props.user.id}`, {
+                title,
+                publicValue
+            }, {
+                headers: {
+                    "Authorization": `Bearer ${props.token}`
+                }
+            })
+            .then(response => {
+                if (response.data.results) {
+                    return (<Redirect to="/profile" />);
+                } else if (response.data.error) {
+                    setMessage(response.data.error);
+                }
+            }).catch(err => {
+                console.log(err);
+                setMessage(err.message)
+            })
+        }
     }
 
     if(!props.user) {
@@ -40,6 +45,7 @@ export default function NewPoem(props) {
     
     return (
         <div>
+            <p>{message}</p>
             <h2>Make a New Poem</h2>
             <form onSubmit={handleSubmit}>
                 <div>

@@ -49,7 +49,6 @@ class User(UserMixin, db.Model):
         s = Serializer(app.config['SECRET_KEY'], expires_in=expiration)
         return s.dumps({ 'id': self.id })
 
-
 class Poem(db.Model):
     __tablename__='poems'
 

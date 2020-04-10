@@ -9,7 +9,7 @@ def get_user(id):
     try: 
         user = User.query.get(id)
         if user:
-            return jsonify(user.as_dict())
+            return jsonify(result=user.as_dict())
         else: 
             return jsonify("Couldn't find user at id", id)
     except Exception as error:
