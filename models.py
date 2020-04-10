@@ -19,6 +19,7 @@ cors = CORS(app, resources={
 })
 
 db = SQLAlchemy(app)
+app.app_context().push()
 
 class User(UserMixin, db.Model):
     __tablename__='users'
@@ -44,7 +45,7 @@ class User(UserMixin, db.Model):
     def verify_password(self, typed_password):
         return pwd_context.verify(typed_password, self.password)
 
-    def generate_token(self, expiration=60*10):
+    def generate_token(self, expiration=60*10*10):
         s = Serializer(app.config['SECRET_KEY'], expires_in=expiration)
         return s.dumps({ 'id': self.id })
 
@@ -67,7 +68,7 @@ class Lyric(db.Model):
     __tablename__='lyrics'
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String, nullable=False)
-    annotation = db.Column(db.String)
+    path = db.Column(db.String)
     song = db.Column(db.String, nullable=False)
     artist = db.Column(db.String, nullable=False)
     thumbnail = db.Column(db.String, nullable=False)

@@ -46,6 +46,7 @@ export default function ShowResult(props) {
             <img src={props.songInfo.img} alt="album thumbnail" />
             <h2>{props.songInfo.title}</h2>
             <h3>by {props.songInfo.artist}</h3>
+            <p><a href={`https://genius.com/${props.songInfo.link}`}>View Lyrics on Genius.com</a></p>
             <p>{lyricBody}</p>
         </div>
     );

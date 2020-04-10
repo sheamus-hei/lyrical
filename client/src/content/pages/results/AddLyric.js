@@ -31,7 +31,6 @@ export default function AddLyric(props) {
             plusButton = (<span>Lyric successfully added!</span>)
         } else {
             // show form to add a poem
-            console.log('USER HERE')
             let userPoems = [{ 
                 title: "Red Thread", 
                 id: 1
@@ -42,12 +41,12 @@ export default function AddLyric(props) {
             let options = userPoems.map(poem => {
                 return (<option value={poem.id}>{poem.title}</option>)
             })
+            let selectPoem = !options? (<p>You don't have any poems. <Link to='/poems/new'>Create a new poem</Link></p>)
+                : (<select name="poem_id">{options}</select>)
             plusButton = (<form onSubmit={handleSubmitAdd}>
                 <div>
                     <label>Add to poem:</label>
-                    <select name="poem_id">
-                        {options}
-                    </select>
+                    {selectPoem}
                     <input type="hidden" name="user_id" value={props.user.name} />
                     <button className="form-button" type="submit">Add Lyric</button>
                 </div>

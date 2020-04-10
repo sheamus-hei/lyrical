@@ -35,6 +35,7 @@ export default function Lyric(props) {
                     link={props.lyric.path} 
                     title={props.lyric.song}
                     artist={props.lyric.artist}
+                    setSongInfo={props.setSongInfo}
                 />
                 {deleteButton}
             </div>

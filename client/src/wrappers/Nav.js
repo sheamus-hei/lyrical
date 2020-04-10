@@ -2,14 +2,6 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 export default function Nav(props) {
-    const handleLogout = e => {
-        e.preventDefault()
-        // Remove the token from localstorage
-        localStorage.removeItem('mernToken')
-        // TODO: Update the state of the App
-        props.updateUser();
-        return(<Redirect to="/auth/login" />)
-    }
 
     // links that show when user is not logged in
     let links = (
@@ -31,7 +23,7 @@ export default function Nav(props) {
                     <Link to="/profile" className="App-link">Profile</Link>
                 </li>
                 <li className="App-nav-link">
-                    <Link to="/" onClick={handleLogout} className="App-link">Log out</Link>
+                    <Link to="/" onClick={props.logout} className="App-link">Log out</Link>
                 </li>
             </span>
         )

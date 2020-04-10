@@ -3,7 +3,8 @@ from models import db, Poem, Lyric, User
 
 def error(err_locale, error):
     print("ERROR in", err_locale, ":", error)
-    return jsonify(error='Server Error')
+    return jsonify(error=f'Server Error in {err_locale}', message=f'Server Error in {err_locale}')
+
 
 # gets all public poems
 def get_all_poems():
@@ -17,8 +18,9 @@ def get_all_poems():
 # gets a user's poems
 def get_user_poems(user_id):
     try:
-        poems = Poem.query.filter_by(user_id).all()
+        poems = Poem.query.filter_by(user_id=user_id).all()
         if poems: 
+            print("GOT USER POEMS 🦖")
             results = [poem.as_dict() for poem in poems]
             return jsonify(results)
         else: 
@@ -44,8 +46,11 @@ def get_poem(id):
 
 def create_poem(title, public, user_id):
     try: 
+        print("CREATING DAT POEM")
         new_poem = Poem(title=title, public=public, user_id=user_id)
+        print("ADDING DAT POEM")
         db.session.add(new_poem)
+        print("COMMITTING DAT POEM")
         db.session.commit()
         return jsonify(new_poem.as_dict())
     except Exception as error:

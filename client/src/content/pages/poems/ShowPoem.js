@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import Lyric from './Lyric';
 
 
 export default function ShowPoem(props) {
+    const { id } = useParams();
     const [lyrics, setLyrics] = useState(null);
     const [title, setTitle] = useState(null);
     const [author, setAuthor] = useState(null);
@@ -13,16 +14,18 @@ export default function ShowPoem(props) {
         // axios call to get lyrics and author
         setLyrics([{
             artist: 'One Direction',
-            song: "You don't know you're beautiful",
+            song: "What make you beautiful",
             thumbnail: "http://www.placekitten.com/100/100",
             content: "You don't know, oh, oh...",
             annotation: "this is my favorite song",
+            path: "One-direction-what-makes-you-beautiful-lyrics"
         }, {
             artist: 'Beyonce',
             song: "Irreplaceable",
             thumbnail: "http://www.placekitten.com/100/100",
             content: "Everything you own in a box to the left",
             annotation: "this is my 2nd favorite song",
+            path: "Kendrick-lamar-humble-lyrics"
         }])
         setAuthor('Erik');
         setTitle('Red Thread')
@@ -31,7 +34,7 @@ export default function ShowPoem(props) {
     let editButton = "";
     if (props.user) {
         editButton = (
-            <Link to="/poems/edit">Edit Poem Details</Link>
+            <Link to="/poems/edit/">Edit Poem Details</Link>
         )
     }
 
@@ -41,7 +44,7 @@ export default function ShowPoem(props) {
         </div>
         : lyrics.map(lyric => {
             return (
-                <Lyric lyric={lyric} user={props.user}/>
+                <Lyric lyric={lyric} user={props.user} setSongInfo={props.setSongInfo}/>
             )
         });
     

@@ -15,31 +15,26 @@ export default function Signup(props) {
   }, [email, name, password])
 
   const handleSubmit = e => {
-    e.preventDefault()
-    // TODO: Send the user sign up data to the server
-    axios.post(`${process.env.REACT_APP_SERVER_URL}/auth/signup`, {
-        name,
-        email,
-        password
-      },
-      {
-        'Content-Type': 'application/json'
+    e.preventDefault();
+    let payload = {email, password, name};
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/auth/signup`, payload)
+    .then(response => {
+      if (response.data.message) {
+        props.setUserToken(null)
+      } else if (response.data.error) {
+        props.setUserToken(null);
+        setMessage(response.data.error);
+      } else {
+        props.setUserToken({ user: response.data.user, token: response.data.token})
       }
-    ).then(response => {
-      if (!response.ok) {
-        console.log(response);
-        setMessage(`${response.status}: ${response.statusText}`);
-        return;
-      }
-      //if user signded up successfully
-      response.json().then(result => {
-        props.updateUser(result.token);
-      })
+    }).catch(err=> {
+      console.log(err);
+      setMessage(err.message);
     })
   }
 
   if (props.user) {
-    return <Redirect to="/profile" />
+    return (<Redirect to="/profile" />);
   }
 
   return (

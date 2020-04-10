@@ -39,16 +39,19 @@ export default function NewPoem(props) {
     }
     
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>Title:</label>
-                <input type="text" name="title" onChange={e => setTitle(e.target.value)} />
-            </div>
-            <div>
-                <input type="checkbox" name="title" onChange={e => handleCheck} />
-                <label>Make Poem Public</label>
-            </div>
-            <button className="form-button" type="submit">Create Recipe!</button>
-        </form>
+        <div>
+            <h2>Make a New Poem</h2>
+            <form onSubmit={handleSubmit}>
+                <div>
+                    <label>Title:</label>
+                    <input type="text" name="title" onChange={e => setTitle(e.target.value)} />
+                </div>
+                <div>
+                    <input type="checkbox" name="title" onChange={e => handleCheck} />
+                    <label>Make Poem Public</label>
+                </div>
+                <button className="form-button" type="submit">Create Poem</button>
+            </form>
+        </div>
     )
 }

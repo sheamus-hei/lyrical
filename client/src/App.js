@@ -8,53 +8,35 @@ import Content from './content/Content';
 
 function App() {
   const [songInfo, setSongInfo] = useState({});
-  const [user, updateUser] = useState(null)
+  const [user, updateUser] = useState(null);
+  const [token, setToken] = useState(null);
 
   // let [user, updateUser] = useState({
+  //   id: 1,
   //   name: "Erik",
   //   email: "erik@test.com",
   //   password: "password"
   // })
 
   const setUserToken = (responseData) => {
-    updateUser({user: responseData.user, token: responseData.token})
+    if (responseData) {
+      console.log("token successfully obtained")
+      setToken(responseData.token)
+      updateUser(responseData.user)
+    } else {
+      setToken(null)
+      updateUser(null)
+    }
   }
-
-  // useEffect(() => {
-  //   decodeToken();
-  // }, []);
-
-  // const updateUser = newToken => {
-  //   if (newToken) {
-  //     localStorage.setItem('mernToken', newToken);
-  //     decodeToken(newToken);
-  //   } else {
-  //     setUser(null);
-  //   }
-  // }
-
-  // const decodeToken = existingToken => {
-  //   let token = existingToken || localStorage.getItem('mernToken');
-  //   if (token) {
-  //     let decoded = jwtDecode(token);
-  //     if (!decoded || Date.now() >= decoded.exp * 1000) {
-  //       console.log("Token expired!");
-  //       setUser(null);
-  //     } else {
-  //       setUser(decoded);
-  //     }
-  //   } else {
-  //     setUser(null);
-  //   }
-  // }
+  
 
   return (
     <Router>
       <div>
-        <Header user={user} />
+        <Header logout={() => setUserToken(null)} user={user} />
         <main>
           <Content songInfo={songInfo} setSongInfo={setSongInfo} 
-            user={user} updateUser={updateUser} />
+            user={user} updateUser={updateUser} token={token} setUserToken={setUserToken} />
         </main>
       </div>
     </Router>

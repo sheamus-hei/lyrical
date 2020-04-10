@@ -33,8 +33,8 @@ auth = HTTPTokenAuth('Bearer')
     
 @app.errorhandler(Exception)
 def unhandled_exception(e):
-    app.logger.error('Unhandled Exception: %s')
-    return jsonify(error='Server Error')
+    app.logger.error(f'Unhandled Exception: {e}')
+    return jsonify(error=f'Server Error: {e}', message=f'Server Error: {e}')
 
 @auth.verify_token
 def verify_token(token):
@@ -99,7 +99,7 @@ def get_user(id):
     return get_user(id)
 
 @app.route('/profile/<int:user_id>', methods=['GET', 'POST', 'PUT'])
-@auth.login_required
+#@auth.login_required
 def poems_user_get_post(user_id):
     if request.method == 'GET':
         #get user poems

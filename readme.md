@@ -111,7 +111,8 @@
 
 ### Thursday
 * Implemented auth in flask
-* Added React components to add a lyric
+* Successfully tested front end auth in React
+* Added React components for Poem and Lyric CRUD
 
 
 ### TO DO:

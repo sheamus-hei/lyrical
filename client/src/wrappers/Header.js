@@ -7,10 +7,10 @@ export default function Header(props) {
         <header>
             <div>
                 <Link to="/" className="App-link">
-                    <h1>Genius Poetry Corner</h1>
+                    <h1>Lyrical.</h1>
                 </Link>
             </div>
-            <Nav user={props.user} />
+            <Nav logout={props.logout} user={props.user} />
         </header>
     )
 }

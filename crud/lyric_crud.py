@@ -3,7 +3,7 @@ from models import db, Lyric
 
 def error(err_locale, error):
     print("ERROR in", err_locale, ":", error)
-    return jsonify(error='Server Error')
+    return jsonify(error=f'Server Error in {err_locale}', message=f'Server Error in {err_locale}')
 
 #there is no get all lyrics function because get poem:id should return that poems lyrics. 
 
