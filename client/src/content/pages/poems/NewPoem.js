@@ -13,7 +13,7 @@ export default function NewPoem(props) {
     }, [title, publicValue])
 
     const handleCheck = e => {
-        e.target.checked? setPublicValue(true) : setPublicValue(false)
+        e.target.checked? setPublicValue(true) : setPublicValue(false);
     }
 
     const handleSubmit = e => {
@@ -57,7 +57,7 @@ export default function NewPoem(props) {
                     <input type="text" name="title" onChange={e => setTitle(e.target.value)} />
                 </div>
                 <div>
-                    <input type="checkbox" name="title" onChange={e => handleCheck} />
+                    <input type="checkbox" name="title" onChange={e => handleCheck(e)} />
                     <label>Make Poem Public</label>
                 </div>
                 <button className="form-button" type="submit">Create Poem</button>

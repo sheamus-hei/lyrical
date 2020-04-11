@@ -11,7 +11,7 @@ def get_lyric(id):
     try:
         lyric = Lyric.query.get(id)
         if lyric:
-            return jsonify(lyric.as_dict())
+            return jsonify(result=lyric.as_dict())
         else: 
             raise Exception('Error in getting lyric at id', id)
     except Exception as error:
@@ -25,7 +25,7 @@ def create_lyric(song, artist, thumbnail, content, path, order, poem_id):
         )
         db.session.add(new_lyric)
         db.session.commit()
-        return jsonify(result=new_user.as_dict())
+        return jsonify(result=new_lyric.as_dict())
     except Exception as error:
         return error('creating a lyric')
 

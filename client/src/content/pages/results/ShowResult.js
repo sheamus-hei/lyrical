@@ -8,7 +8,6 @@ export default function ShowResult(props) {
 
     useEffect(() => {
         if (props.songInfo && props.songInfo.link) {
-            console.log("SONG INFO MADE IT", props.songInfo)
             axios.get(`${process.env.REACT_APP_SERVER_URL}/songs/${props.songInfo.link}`)
             .then(response => {
                 if (response.data.message) {
@@ -35,9 +34,9 @@ export default function ShowResult(props) {
     let lyricBody = !lyrics? "" : (
         lyrics.map(line => {
             if (!line || line[0] == '[') {
-                return <p><strong>{line}</strong></p>
+                return <div><strong>{line}</strong></div>
             }
-            return <p>{line}<AddLyric line={line} songInfo={props.songInfo} user={props.user} token={props.token} /></p>
+            return <div>{line}<AddLyric line={line} songInfo={props.songInfo} user={props.user} token={props.token} /></div>
         })
     )
 
@@ -47,7 +46,7 @@ export default function ShowResult(props) {
             <h2>{props.songInfo.title}</h2>
             <h3>by {props.songInfo.artist}</h3>
             <p><a href={`https://genius.com/${props.songInfo.link}`}>View Lyrics on Genius.com</a></p>
-            <p>{lyricBody}</p>
+            <div>{lyricBody}</div>
         </div>
     );
     

@@ -5,6 +5,7 @@ import axios from 'axios';
 export default function AddLyric(props) {
     const [clicked, setClicked] = useState(false)
     const [userPoems, setUserPoems] = useState([]);
+    const [poemId, setPoemId] = useState(null);
 
     useEffect(() => {
         // do an axios call to get user poems
@@ -17,6 +18,10 @@ export default function AddLyric(props) {
             .then(response => {
                 if (response.data.results) {
                     setUserPoems(response.data.results)
+                    // set default poem id
+                    if (response.data.results.length > 0) {
+                        setPoemId(response.data.results[0].id)
+                    }
                 }
             }).catch(err => {
                 console.log(err)
@@ -50,7 +55,7 @@ export default function AddLyric(props) {
             let content = props.line;
             let path = props.songInfo.link;
             let order = 1;
-            axios.post(`${process.env.REACT_APP_SERVER_URL}/poems/${props.user.id}`, {  
+            axios.post(`${process.env.REACT_APP_SERVER_URL}/poems/${poemId}`, {  
                 song,
                 artist,
                 thumbnail,
@@ -63,7 +68,6 @@ export default function AddLyric(props) {
                 }
             })
             .then(response => {
-                console.log("DAT DATA", response)
                 if (response.data.result) {
                     setClicked("submitted");
                 } 
@@ -77,7 +81,6 @@ export default function AddLyric(props) {
     
     if (clicked) {
         if (!props.user) {
-            console.log('THERE BE NO USER')
             plusButton = (<span>
                 <Link to='/auth/login'>Log in</Link> to add a lyric to your poem
             </span>)
@@ -88,15 +91,18 @@ export default function AddLyric(props) {
             let options = userPoems.map(poem => {
                 return (<option value={poem.id}>{poem.title}</option>)
             })
-            let selectPoem = !options? (<p>You don't have any poems. <Link to='/poems/new'>Create a new poem</Link></p>)
-                : (<select name="poem_id">{options}</select>)
-            plusButton = (<form onSubmit={handleSubmitAdd}>
-                <div>
-                    <label>Add to poem:</label>
-                    {selectPoem}
-                    <button className="form-button" type="submit">Add Lyric</button>
-                </div>
-            </form>)
+            let selectPoem = options.length < 1 ? (<p>You don't have any poems. <Link to='/poems/new'>Create a new poem</Link></p>)
+            : (<select onChange={(e) => {setPoemId(e.target.value)}}
+                    name="poem_id">{options}</select>)
+            plusButton = (
+                <form onSubmit={(e) => handleSubmitAdd(e)}>
+                    <div>
+                        <label>Add to poem:</label>
+                        {selectPoem}
+                        <button className="form-button" type="submit">Add Lyric</button>
+                    </div>
+                </form>
+            )
         }
     }
 
