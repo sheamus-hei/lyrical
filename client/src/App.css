@@ -1,38 +1,169 @@
-.App {
+body {
+  margin: 0 auto;
+}
+a, a:visited {
+  text-decoration: none;
+  color: black;
+}
+header {
+  color: white;
+  background: rgb(73, 73, 73);
   text-align: center;
+  padding: 10px;
+  height: 187px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header h1, header h3 {
+  font-family: 'Lucida console', monospace;
+  margin: 0 auto;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+header a {
+  text-decoration: none;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+header a:visited {
+  text-decoration: none;
+  color: white;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+header a:hover {
+  color: skyblue;
+  background: none;
+}
+.jaunty {
+  border-right: 309px solid black;
+  border-top: 33px solid transparent;
+  border-bottom: 15px solid transparent;
+  height: 78px;
+  width: 0px;
+  font-size: 24px;
+  margin: 0 auto;
+}
+.jaunty h1 {
+  padding-left: 46px;
+  padding-top: 10px;
+}
+.lightblue {
+  color: skyblue;
+}
+nav {
+  background: rebeccapurple;
+  -webkit-transform: translateY(5px) translateX(2px) rotate(-1deg);
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+nav li {
+  line-height: 40px;
+}
+main {
+  margin: 0 5%;
+  margin-top: 55px;
+}
+.fancy {
+  font-family: 'Lucida console', monospace;
+}
+.fancy a, .fancy a:visited {
+  color: black;
+}
+.capitalize {
+  text-transform: capitalize;
+}
+.music-note {
+  height: 100px;
+}
+.poems {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.thumbnail {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 10px;
+  align-items: center;
+  border-radius: 15px;
+  border: 2px solid gray;
+  margin: 10px 0;
+}
+.thumbnail:hover {
+  border: 2px solid skyblue;
+}
+.thumb-text {
+  padding: 10px;
+}
+.page-header {
+  margin-left: 9%;
+}
+.profile-links {
+  margin: 20px;
+  margin-left: 9%;
+}
+.spacer {
+  margin: 0 20px;
+}
+.basic-link:hover {
+  border-bottom: 2px solid skyblue;
+}
+.simple {
+  border-radius: 15px;
+  border: 2px solid gray;
+  padding: 20px 0 20px 20%;
+}
+.poem-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 10px;
+  align-items: center;
+  margin: 10px 0;
+  margin-left: -85px;
+}
+.poem-header-text{
+  margin: 0 20px;
+}
+.gray-bg {
+  background: rgb(233, 232, 232);
+  padding: 5px;
+  margin: 5px 0;
+  display: inline-block;
+}
+.gray-bg:hover {
+  background: skyblue;
+}
+.highlight {
+  background: skyblue;
+}
+.songthumb {
+  background: rgb(233, 232, 232);
+  border-radius: 15px; 
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 10px;
+  align-items: center;
+  width: 350px;
+}
+.songthumb-img {
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+}
+.songthumb-text {
+  margin: 0 20px;
+}
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 16px solid rgb(233, 232, 232);
+  margin-left: 30px;
 }

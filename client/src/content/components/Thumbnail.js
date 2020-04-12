@@ -25,11 +25,16 @@ export default function Thumbnail(props) {
     }, []);
 
     return (
-        <div>
-            <h2>
-                <Link to={`/poems/${props.id}`}>{props.title}</Link>
-            </h2>
-            <h3>artfully assembled by {author}</h3>
+        <div className="thumbnail">
+            <div>
+                <img className="music-note" src='music-note.png' alt="music note" />
+            </div>
+            <Link to={`/poems/${props.id}`}>
+                <div className="thumb-text">
+                    <h2>{props.title}</h2>
+                    <h3 className="fancy">artfully assembled by {author}</h3>
+                </div>
+            </Link>
         </div>
     )
 }

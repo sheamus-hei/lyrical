@@ -5,34 +5,32 @@ export default function Nav(props) {
 
     // links that show when user is not logged in
     let links = (
-        <span>
+        <ul>
             <li className="App-nav-link">
                 <Link to="/auth/login" className="App-link">Login</Link>
             </li>
             <li className="App-nav-link">
                 <Link to="/auth/signup" className="App-link">Sign up</Link>
             </li>
-        </span>
+            <li>
+                <Link to="/results" className="App-link">Browse Songs</Link>
+            </li>
+            <li>
+                <a href="https://github.com/dean-hei/genius-poetry-corner" className="App-link">About</a>
+            </li>
+        </ul>
     )
 
     if (props.user) {
         links = (
-            <span>
-                <li className="fancy">Welcome, {props.user.name}</li>
+            <ul>
+                <li className="fancy capitalize">Welcome, {props.user.name}</li>
                 <li className="App-nav-link"> 
                     <Link to="/profile" className="App-link">Profile</Link>
                 </li>
                 <li className="App-nav-link">
                     <Link to="/" onClick={props.logout} className="App-link">Log out</Link>
                 </li>
-            </span>
-        )
-    }
-
-    return (
-        <nav>
-            <ul>
-                {links}
                 <li>
                     <Link to="/results" className="App-link">Browse Songs</Link>
                 </li>
@@ -40,6 +38,12 @@ export default function Nav(props) {
                     <a href="https://github.com/dean-hei/genius-poetry-corner" className="App-link">About</a>
                 </li>
             </ul>
+        )
+    }
+
+    return (
+        <nav>
+            {links}
         </nav>
     )
 }

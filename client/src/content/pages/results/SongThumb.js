@@ -10,13 +10,20 @@ export default function SongThumb(props) {
             artist: props.artist
         })
     }
+
+    let divStyle= {
+        backgroundImage: 'url(' + props.img + ')'
+    }
     return (
-        <div>
-            <img src={props.img} alt="thumbnail image" />
-            <Link to={`/results/${props.link}`} onClick={handleLinkClick}>
-                <h2>{props.title}</h2>
-            </Link>
-            <h3>by {props.artist}</h3>
+        <div className="songthumb">
+            <div style={divStyle} className="songthumb-img" alt="album thumbnail">
+            </div>
+            <div className="songthumb-text">
+                <Link to={`/results/${props.link}`} onClick={handleLinkClick}>
+                    <h2 className="basic-link">{props.title}</h2>
+                </Link>
+                <h3>by {props.artist}</h3>
+            </div>
         </div>
     )
 }

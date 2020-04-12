@@ -30,7 +30,8 @@ export default function Lyric(props) {
     if (clicked) {
         display = (
             <div>
-                <p className="hightlight"><b>{props.lyric.content}</b></p>
+                <p className="gray-bg highlight">{props.lyric.content}</p>
+                <div className="arrow"></div>
                 <SongThumb 
                     img={props.lyric.thumbnail} 
                     link={props.lyric.path} 

@@ -59,7 +59,7 @@ export default function ShowPoem(props) {
     let editButton = "";
     if (props.user && author && props.user.id == author.id) {
         editButton = (
-            <Link to={`/poems/${id}/edit/`}>Edit Poem Details</Link>
+            <Link className="basic-link" to={`/poems/${id}/edit/`}>Edit Poem Details</Link>
         )
     }
 
@@ -79,12 +79,19 @@ export default function ShowPoem(props) {
     let hiddenMessage = poem && poem.public ? "": (<p>(This poem is not public)</p>)
     
     return (
-        <div>
+        <div className="simple">
             {message}
-            <h1>{poem? poem.title : "Loading..."}</h1>
-            <h2>by {author? author.name : "unknown"}</h2>
-            {hiddenMessage}
-            {editButton}
+            <div className="poem-header">
+                <div>
+                    <img className="music-note" src='../music-note.png' alt="music note" />
+                </div>
+                <div className="poem-header-text">
+                    <h1>{poem? poem.title : "Loading..."}</h1>
+                    <h2 className="fancy">by {author? author.name : "unknown"}</h2>
+                    {editButton}
+                    {hiddenMessage}
+                </div>
+            </div>
             {lyricsList}
         </div>
     )

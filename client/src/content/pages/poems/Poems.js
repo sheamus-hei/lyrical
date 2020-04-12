@@ -36,8 +36,8 @@ export default function Poems(props) {
 
     return (
         <div>
-            <h2>Featured Poems</h2>
-            <div>
+            <h2 className="page-header">Featured Poems</h2>
+            <div className="poems">
                 {poemLinks}
             </div>
         </div>

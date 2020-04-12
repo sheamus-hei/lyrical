@@ -49,10 +49,13 @@ export default function Profile(props) {
 
     return (
         <div>
-            <h1>{props.user.name}'s Profile</h1>
-            <Link to='profile/edit'>Edit Profile</Link>
-            <Link to='poems/new'>Make a New Poem</Link>
-            <div>
+            <h1 className="page-header capitalize">{props.user.name}'s Profile</h1>
+            <div class="profile-links">
+                <Link to='profile/edit' className="basic-link">Edit Profile</Link>
+                <span className="spacer">|</span>
+                <Link to='poems/new' className="basic-link">Make a New Poem</Link>
+            </div>
+            <div className="poems">
                 {poemLinks}
             </div>
         </div>
