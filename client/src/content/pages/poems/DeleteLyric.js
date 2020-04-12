@@ -1,11 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 export default function DeleteLyric(props) {
+    const [deleteRedirect, setDeleteRedirect] = useState(false);
+
     const removeLyric = (e) => {
         // axios call to delete lyric in db
+        e.preventDefault()
+        // do an axios call to add the lyric to the db
+        if (props.user) {
+            axios.delete(`${process.env.REACT_APP_SERVER_URL}/lyrics/${props.lyric.id}`, {
+                headers: {
+                    "Authorization": `Bearer ${props.token}`
+                }
+            })
+            .then(response => {
+                if (response.data) {
+                    setDeleteRedirect(true);
+                } 
+            }).catch(err => {
+                console.log(err);
+            })
+        }
+    }
+
+    if (deleteRedirect) {
+        return (<p>Lyric successfully deleted! (Refresh to see changes)</p>)
     }
 
     return (
-        <button onClick={removeLyric}>Remove this Lyric</button>
+        <button onClick={(e) => removeLyric(e)}>Remove this Lyric</button>
     )
 }

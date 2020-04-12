@@ -64,7 +64,7 @@ def update_poem(id, title, public):
             poem.title = title or poem.title
             poem.public = public or poem.public
             db.session.commit()
-            return jsonify(poem.as_dict())
+            return jsonify(result=poem.as_dict())
         else:
             return jsonify("No poem found at id", id)
     except Exception as error:
@@ -75,7 +75,7 @@ def destroy_poem(id):
         poem = Poem.query.get(id)
         db.session.delete(poem)
         db.session.commit()
-        return redirect('/')
+        return jsonify(result="success")
     except Exception as error:
         return error('deleting a user', error)
 

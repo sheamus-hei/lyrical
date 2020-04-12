@@ -26,7 +26,7 @@ export default function Content(props) {
                 <Route path="/results" render={() => <Results songInfo={props.songInfo} setSongInfo={props.setSongInfo} />} />
                 <Route path="/poems/new" render={() => <NewPoem user={props.user} token={props.token}/>} />
                 <Route path="/poems/:id/edit" render={() => <EditPoem user={props.user} token={props.token} />} />
-                <Route path="/poems/:id" render={() => <ShowPoem user={props.user} songInfo={props.songInfo} setSongInfo={props.setSongInfo} />} />
+                <Route path="/poems/:id" render={() => <ShowPoem user={props.user} songInfo={props.songInfo} setSongInfo={props.setSongInfo} token={props.token} />} />
                 <Route path="/auth/login" render={() => <Login user={props.user} updateUser={props.updateUser} token={props.token} setUserToken={props.setUserToken} /> } />
                 <Route path="/auth/signup" render={() => <Signup user={props.user} updateUser={props.updateUser} token={props.token} setUserToken={props.setUserToken} /> } />
             </Switch>

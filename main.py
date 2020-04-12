@@ -118,10 +118,10 @@ def poem_post_put_delete(id):
         )
     if request.method == 'PUT':
         # edit the poem (i.e. the title, is public)
-        return edit_poem(
+        return update_poem(
             id=id,
-            title=request.form['title'],
-            public=request.form['public']
+            title=request.json['title'],
+            public=request.json['publicValue']
         )
     if request.method == 'DELETE':
         # delete the poem

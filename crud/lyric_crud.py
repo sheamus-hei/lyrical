@@ -48,6 +48,6 @@ def destroy_lyric(id):
         lyric = Lyric.query.get(id)
         db.session.delete(lyric)
         db.session.commit()
-        return redirect('/')
+        return jsonify(result="success")
     except Exception as error:
         return error('deleting a lyric', error)

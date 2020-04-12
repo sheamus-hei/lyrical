@@ -57,9 +57,9 @@ export default function ShowPoem(props) {
     }, [])
 
     let editButton = "";
-    if (props.user && author && props.user_id == author.id) {
+    if (props.user && author && props.user.id == author.id) {
         editButton = (
-            <Link to="/poems/edit/">Edit Poem Details</Link>
+            <Link to={`/poems/${id}/edit/`}>Edit Poem Details</Link>
         )
     }
 
@@ -69,7 +69,10 @@ export default function ShowPoem(props) {
         </p>
         : lyrics.map(lyric => {
             return (
-                <Lyric lyric={lyric} user={props.user} setSongInfo={props.setSongInfo}/>
+                <Lyric lyric={lyric} user={props.user} 
+                    setSongInfo={props.setSongInfo} token={props.token} 
+                    authorId={author? author.id:0} poemId={poem? poem.id:0}
+                />
             )
         });
     

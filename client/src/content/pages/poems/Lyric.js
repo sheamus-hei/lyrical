@@ -14,9 +14,10 @@ export default function Lyric(props) {
     }
 
     let deleteButton = ""
-    if (props.user) {
+    if (props.user && props.user.id === props.authorId) {
         deleteButton = (
-            <DeleteLyric lyric={props.lyric} />
+            <DeleteLyric lyric={props.lyric} token={props.token} 
+            user={props.user} poemId={props.poemId}/>
         )
     }
 

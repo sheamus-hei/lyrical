@@ -114,6 +114,11 @@
 * Successfully tested front end auth in React
 * Added React components for Poem and Lyric CRUD
 
+### Friday
+* Finished routes (front to back) to show and add poems
+
+### Saturday
+* Finished route to add and delete lyrics
 
 ### TO DO:
 
