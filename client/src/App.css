@@ -229,3 +229,21 @@ select {
 input {
   margin: 10px 5px;
 }
+
+@media only screen and (max-width: 600px) {
+  .simple {
+    padding: 20px;
+  }
+  .songthumb {
+    width: 90%;
+  }
+  .poem-header {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+  }
+  .poem-header .music-note {
+    position: absolute;
+    right: 40px;
+  }
+}

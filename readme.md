@@ -8,7 +8,7 @@ Lyrical allows users to search for lyrics of their favorite songs and add indivi
 ## Tech Stack
 **Front end:** React
 
-**Back end:** Python, Flask, SQLAlchemy (PostGresSQL)
+**Back end:** Python, Flask, SQLAlchemy (PostGreSQL)
 
 **APIs:** Genius API ([link](https://docs.genius.com/#/getting-started-h1))
 
