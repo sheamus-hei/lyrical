@@ -37,8 +37,8 @@ const Login = props => {
   }
 
   return (
-    <div>
-      <h2>Login</h2>
+    <div className="simple center">
+      <h2 className="fancy">Login</h2>
       <span className="red">{message}</span>
       <form onSubmit={handleSubmit}>
           <div>

@@ -47,12 +47,13 @@ export default function Results(props) {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <h2 className="fancy">Browse Songs</h2>
+            <form className="search" onSubmit={handleSubmit}>
+                <button className="invisible" type="submit">🔍</button>
                 <input type="text" placeholder="Search for a song or artist" onChange={e => setQuery(e.target.value)}/>
-                <button type="submit">🔍</button>
             </form>
-            <div>
-                {songs.length==0? "":(<h2>Results for {query}:</h2>)}
+            {songs.length==0? "":(<h2 className="page-header">Results</h2>)}
+            <div className="poems">
                 {songLinks}
             </div>
         </div>

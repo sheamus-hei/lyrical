@@ -77,26 +77,27 @@ export default function AddLyric(props) {
         }
     }
 
-    let plusButton = (<button onClick={handleClick}>+</button>);
+    let plusButton = (<button className="form-button" onClick={handleClick}>+</button>);
     
     if (clicked) {
         if (!props.user) {
-            plusButton = (<span>
-                <Link to='/auth/login'>Log in</Link> to add a lyric to your poem
+            plusButton = (<span className="lyric-add-text">
+                <Link className="basic-link" to='/auth/login'>Log in to add a lyric to your poem</Link>
             </span>)
         } else if (clicked=="submitted") {
-            plusButton = (<span>Lyric successfully added!</span>)
+            plusButton = (<span className='lyric-add-text'>Lyric successfully added!</span>)
         } else {
             // show form to add a poem
             let options = userPoems.map(poem => {
                 return (<option value={poem.id}>{poem.title}</option>)
             })
-            let selectPoem = options.length < 1 ? (<p>You don't have any poems. <Link to='/poems/new'>Create a new poem</Link></p>)
+            let selectPoem = options.length < 1 ? (<p class="lyric-add-text">You don't have any poems. <Link className='basic-link' to='/poems/new'>Create a new poem?</Link></p>)
             : (<select onChange={(e) => {setPoemId(e.target.value)}}
                     name="poem_id">{options}</select>)
             plusButton = (
                 <form onSubmit={(e) => handleSubmitAdd(e)}>
-                    <div>
+                    <div className="arrow"></div>
+                    <div className="songthumb">
                         <label>Add to poem:</label>
                         {selectPoem}
                         <button className="form-button" type="submit">Add Lyric</button>

@@ -34,18 +34,27 @@ export default function ShowResult(props) {
     let lyricBody = !lyrics? "" : (
         lyrics.map(line => {
             if (!line || line[0] == '[') {
-                return <div><strong>{line}</strong></div>
+                return <div className="lyric-break"><strong>{line}</strong></div>
             }
-            return <div>{line}<AddLyric line={line} songInfo={props.songInfo} user={props.user} token={props.token} /></div>
+            return <div className="lyric-line">{line}<AddLyric line={line} songInfo={props.songInfo} user={props.user} token={props.token} /></div>
         })
     )
 
+    let resultStyle = !props.songInfo? "" :{
+        backgroundImage: 'url(' + props.songInfo.img + ')'
+    }
+
     let body = !props.songInfo? "" : (
-        <div>
-            <img src={props.songInfo.img} alt="album thumbnail" />
-            <h2>{props.songInfo.title}</h2>
-            <h3>by {props.songInfo.artist}</h3>
-            <p><a href={`https://genius.com/${props.songInfo.link}`}>View Lyrics on Genius.com</a></p>
+        <div className="simple">
+            <div className="result-header">
+                <div style={resultStyle} className="result-img" alt="album thumbnail">
+                </div>
+                <div className="result-text">
+                    <h2>{props.songInfo.title}</h2>
+                    <h3>by {props.songInfo.artist}</h3>
+                    <p className="basic-link"><a href={`https://genius.com/${props.songInfo.link}`}>View Lyrics on Genius.com</a></p>
+                </div>
+            </div>
             <div>{lyricBody}</div>
         </div>
     );

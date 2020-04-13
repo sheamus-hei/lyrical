@@ -38,8 +38,8 @@ export default function Signup(props) {
   }
 
   return (
-    <div>
-      <h2>Signup</h2>
+    <div className="simple center">
+      <h2 className="fancy">Signup</h2>
       <span className="red">{message}</span>
       <form onSubmit={handleSubmit}>
         <div>

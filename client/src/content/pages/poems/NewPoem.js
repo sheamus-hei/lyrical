@@ -48,9 +48,9 @@ export default function NewPoem(props) {
         return <Redirect to="/profile" />
     }
     return (
-        <div>
+        <div className="simple center">
             <p>{message}</p>
-            <h2>Make a New Poem</h2>
+            <h2 className="fancy">Make a New Poem</h2>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Title:</label>

@@ -22,7 +22,7 @@ export default function SongThumb(props) {
                 <Link to={`/results/${props.link}`} onClick={handleLinkClick}>
                     <h2 className="basic-link">{props.title}</h2>
                 </Link>
-                <h3>by {props.artist}</h3>
+                <h3>{props.artist}</h3>
             </div>
         </div>
     )

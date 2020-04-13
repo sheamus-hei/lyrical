@@ -96,8 +96,8 @@ export default function EditPoem(props) {
     }
     
     return (
-        <div>
-            <h2>Edit Poem</h2>
+        <div className="simple center">
+            <h2 className="fancy">Edit Poem</h2>
             {message}
             <form onSubmit={handleSubmit}>
                 <div>

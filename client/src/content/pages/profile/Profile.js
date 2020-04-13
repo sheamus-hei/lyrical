@@ -49,7 +49,7 @@ export default function Profile(props) {
 
     return (
         <div>
-            <h1 className="page-header capitalize">{props.user.name}'s Profile</h1>
+            <h1 className="page-header capitalize fancy">{props.user.name}'s Profile</h1>
             <div class="profile-links">
                 <Link to='profile/edit' className="basic-link">Edit Profile</Link>
                 <span className="spacer">|</span>
