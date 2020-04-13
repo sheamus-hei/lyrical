@@ -54,7 +54,7 @@ export default function NewPoem(props) {
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Title:</label>
-                    <input type="text" name="title" onChange={e => setTitle(e.target.value)} />
+                    <input type="text" maxLength="11" name="title" onChange={e => setTitle(e.target.value)} />
                 </div>
                 <div>
                     <input type="checkbox" name="title" onChange={e => handleCheck(e)} />

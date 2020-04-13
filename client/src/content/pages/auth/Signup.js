@@ -44,7 +44,7 @@ export default function Signup(props) {
       <form onSubmit={handleSubmit}>
         <div>
           <label>Name:</label>
-          <input type="text" name="name" onChange={e => setName(e.target.value)} />
+          <input type="text" maxLength="11" name="name" onChange={e => setName(e.target.value)} />
         </div>
         <div>
           <label>Email:</label>

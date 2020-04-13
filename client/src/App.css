@@ -246,4 +246,7 @@ input {
     position: absolute;
     right: 40px;
   }
+  .basic-link {
+    border-bottom: 2px solid skyblue;
+  }
 }
