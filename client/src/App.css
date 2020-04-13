@@ -96,6 +96,7 @@ main {
 }
 .thumb-text {
   padding: 10px;
+  padding-left: 20px;
 }
 .page-header {
   margin-left: 9%;

@@ -1,11 +1,23 @@
-# P4: Genius Poetry Corner
+# P4: Lyrical (Genius Poetry Corner)
+
+
+![](readme-pics/results.png)
+
+Lyrical allows users to search for lyrics of their favorite songs and add individual lyrics to poems they have created. Essentially, a user can create poetry using different song lyrics.
 
 ## Tech Stack
 **Front end:** React
 
-**Back end:** Python/sqlalchemy
+**Back end:** Python, Flask, SQLAlchemy (PostGresSQL)
 
 **APIs:** Genius API ([link](https://docs.genius.com/#/getting-started-h1))
+
+## MVP
+
+Create a web application using a React front end and Flask (python) back end that allows users to make poems and add song lyrics to them. 
+
+![](readme-pics/poem.png)
+*One user's poem. The name of the song is displayed for each lyric added.*
 
 ## Models
 
@@ -42,6 +54,9 @@
 
 ## Routes
 
+![](readme-pics/user-flow.png)
+*User Flow Diagram*
+
 ### Back End (Flask)
 
 | Type | Address | Description|
@@ -69,16 +84,20 @@
 |/results/:id | Page for one song 
 |/poems/new| Form to make a new poem 
 |/poems/:id| Page to show a poem 
+|/poems/:id/edit| Form to edit a poem 
 |/auth/login| Form to login | 
 |/auth/signup| Form to sign up | 
 
 ## Tech
 
 ### Genius API
-1. Using User Query from searchbar, query Genius API to show a list of songs in /results
-2. Each song result will have a generic http path to the lyrics page. Pass this path to the backend.
+1. Using a user's query from searchbar, the Genius API is queried to show a list of songs in /results
+2. Each song result will have a generic http path to the lyrics page. This path is passed to the back end.
 3. Backend uses python data scraping to get the lyrics and return them to the front end page, /results/:id
-4. Front End renders song lyrics from back end, with artist and title
+4. Front end renders song lyrics from back end, with artist and title
+
+![](readme-pics/song.png)
+*Song Lyrics scraped from the Genius website*
 
 ## Project Log
 
@@ -96,6 +115,7 @@
 * Generated Auth Token to get song results from api
 * Finished /results page that shows song results from Genius api based on the user query
 * Successfully tested data scraping in python to get lyrics from Genius
+	- [Luckily, someone already wrote the script for it](https://bigishdata.com/2016/09/27/getting-song-lyrics-from-geniuss-api-scraping/)
 
 ### Tuesday
 * Successfully displaying lyrics on the React front end
@@ -109,6 +129,9 @@
 * Worked on front end React components for profile and poems pages
 * Drew wireframes
 
+![](readme-pics/wireframe2.jpg)
+*Initial wireframe*
+
 ### Thursday
 * Implemented auth in flask
 * Successfully tested front end auth in React
@@ -119,11 +142,15 @@
 
 ### Saturday
 * Finished route to add and delete lyrics
+* Finished route to delete a poem
+### Sunday
+* Added styling to all components
+* Finished writing Readme
 
-### TO DO:
 
-* test backend crud
-* fix auth
-* display poems, profile on front end
-* edit poems
-* add axios calls on front end
+
+## Stretch Goals & Unsolved Problems
+* React forms and edit routes are still tricky. May return to them later.
+* Being able to drag and drop lyrics into a particular order
+* Using pandas to find the most commonly cited artist and song, and display this information on the homepage
+

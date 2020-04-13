@@ -25,10 +25,10 @@ export default function DeleteLyric(props) {
     }
 
     if (deleteRedirect) {
-        return (<p>Lyric successfully deleted! (Refresh to see changes)</p>)
+        return (<p class="lyric-add-text">Lyric successfully deleted! (Refresh to see changes)</p>)
     }
 
     return (
-        <button onClick={(e) => removeLyric(e)}>Remove this Lyric</button>
+        <button class="form-button" onClick={(e) => removeLyric(e)}>Remove this Lyric</button>
     )
 }
