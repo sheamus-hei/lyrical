@@ -32,12 +32,15 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <div class="wrapper"> 
         <Header logout={() => setUserToken(null)} user={user} />
         <main>
           <Content songInfo={songInfo} setSongInfo={setSongInfo} 
             user={user} updateUser={updateUser} token={token} setUserToken={setUserToken} />
         </main>
+        <footer>
+          <p>© Erik (dj) Heikkila 2020</p>
+        </footer>
       </div>
     </Router>
   );
