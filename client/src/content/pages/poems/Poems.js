@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import Grow from '@material-ui/core/Grow';
 import Thumbnail from '../../components/Thumbnail';
 import axios from 'axios';
 
@@ -37,9 +37,13 @@ export default function Poems(props) {
     return (
         <div>
             <h1 className="page-header fancy">Featured Poems</h1>
-            <div className="poems">
-                {poemLinks}
-            </div>
+            <Grow in="true"
+          style={{ transformOrigin: '50% 0 0' }}
+          {...{ timeout: 1000 }}>
+                <div className="poems">
+                    {poemLinks}
+                </div>
+            </Grow>
         </div>
     )
 }

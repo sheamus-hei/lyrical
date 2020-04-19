@@ -61,7 +61,7 @@ nav li {
 main {
   margin: 0 5%;
   margin-top: 55px;
-  height: 100vh;
+  min-height: 100vh;
 }
 .fancy {
   font-family: 'Lucida console', monospace;
@@ -253,8 +253,9 @@ input {
 }
 footer {
   color: white;
-  background: gray;
+  background: rgb(73, 73, 73);
   text-align: center;
+  margin-top: 20px;
 }
 .wrapper {
   display: flex;

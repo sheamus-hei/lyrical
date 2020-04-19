@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 // import { Route, Switch } from 'react-router-dom';
 import SongThumb from './SongThumb';
+// import Grow from '@material-ui/core/Grow';
+
 
 export default function Results(props) {
     // OVERVIEW
@@ -53,9 +55,13 @@ export default function Results(props) {
                 <input type="text" placeholder="Search for a song or artist" onChange={e => setQuery(e.target.value)}/>
             </form>
             {songs.length==0? "":(<h2 className="page-header">Results</h2>)}
-            <div className="poems">
-                {songLinks}
-            </div>
+            {/* <Grow in="true"
+          style={{ transformOrigin: '50% 0 0' }}
+          {...{ timeout: 1000 }}> */}
+                <div className="poems">
+                    {songLinks}
+                </div>
+            {/* </Grow> */}
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
-
+import Grow from '@material-ui/core/Grow';
 import Lyric from './Lyric';
 
 
@@ -92,7 +92,13 @@ export default function ShowPoem(props) {
                     {hiddenMessage}
                 </div>
             </div>
-            {lyricsList}
+            <Grow in="true"
+          style={{ transformOrigin: '0 0 0' }}
+          {...{ timeout: 1000 }}>
+              <div>
+                {lyricsList}
+              </div>
+          </Grow>
         </div>
     )
 }

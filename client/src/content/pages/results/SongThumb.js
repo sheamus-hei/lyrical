@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Grow from '@material-ui/core/Grow';
 
 export default function SongThumb(props) {
     const handleLinkClick = e => {
@@ -15,6 +16,9 @@ export default function SongThumb(props) {
         backgroundImage: 'url(' + props.img + ')'
     }
     return (
+    <Grow in="true"
+          style={{ transformOrigin: '30 0 0' }}
+          {...{ timeout: 1000 }}> 
         <div className="songthumb">
             <div style={divStyle} className="songthumb-img" alt="album thumbnail">
             </div>
@@ -25,5 +29,6 @@ export default function SongThumb(props) {
                 <h3>{props.artist}</h3>
             </div>
         </div>
+    </Grow>
     )
 }
