@@ -16,7 +16,7 @@ export default function Nav(props) {
                 <Link to="/results" className="App-link">Browse Songs</Link>
             </li>
             <li>
-                <a href="https://github.com/dean-hei/genius-poetry-corner" className="App-link">About</a>
+                <a href="https://github.com/dean-hei/genius-poetry-corner" target="_blank" className="App-link">About</a>
             </li>
         </ul>
     )

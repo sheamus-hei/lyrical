@@ -36,14 +36,16 @@ export default function Results(props) {
     let songLinks = !songs ? "" : (
         songs.map(song => {
             key++;
-            return <SongThumb artist={song.primary_artist.name}
+            return (
+                <SongThumb artist={song.primary_artist.name}
                 img={song.song_art_image_thumbnail_url}
                 link={song.path.split("/")[1]}
                 title={song.title_with_featured}
                 key={key}
                 songInfo={props.songInfo}
                 setSongInfo={props.setSongInfo}
-            />
+                />
+            )
         })
     );
 

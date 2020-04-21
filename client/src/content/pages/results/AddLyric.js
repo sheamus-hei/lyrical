@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Grow from '@material-ui/core/Grow';
 
 export default function AddLyric(props) {
     const [clicked, setClicked] = useState(false)
@@ -97,11 +98,13 @@ export default function AddLyric(props) {
             plusButton = (
                 <form onSubmit={(e) => handleSubmitAdd(e)}>
                     <div className="arrow"></div>
-                    <div className="songthumb">
-                        <label>Add to poem:</label>
-                        {selectPoem}
-                        <button className="form-button" type="submit">Add Lyric</button>
-                    </div>
+                    <Grow in={clicked}>
+                        <div className="songthumb">
+                            <label>Add to poem:</label>
+                            {selectPoem}
+                            <button className="form-button" type="submit">Add Lyric</button>
+                        </div>
+                    </Grow>
                 </form>
             )
         }

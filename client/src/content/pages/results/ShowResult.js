@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AddLyric from './AddLyric';
-import Grow from '@material-ui/core/Grow';
+import Fade from '@material-ui/core/Fade';
 
 
 export default function ShowResult(props) {
@@ -57,11 +57,9 @@ export default function ShowResult(props) {
                     <p className="basic-link"><a href={`https://genius.com/${props.songInfo.link}`}>View Lyrics on Genius.com</a></p>
                 </div>
             </div>
-            <Grow in="true"
-          style={{ transformOrigin: '0 0 0' }}
-          {...{ timeout: 2000 }}>
+            <Fade in="true">
                 <div>{lyricBody}</div>
-            </Grow>
+            </Fade>
         </div>
     );
     
