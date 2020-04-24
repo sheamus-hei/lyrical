@@ -16,7 +16,7 @@ const Login = props => {
   // Event handlers
   const handleSubmit = e => {
     e.preventDefault();
-    axios.post(`${process.env.REACT_APP_SERVER_URL}/auth/login`, { email, password })
+    axios.post(`https://lyrical-poetry.herokuapp.com/auth/login`, { email, password })
     .then(response => {
       if (response.data.message) {
         props.setUserToken(null);

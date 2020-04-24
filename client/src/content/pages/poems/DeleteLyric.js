@@ -9,7 +9,7 @@ export default function DeleteLyric(props) {
         e.preventDefault()
         // do an axios call to add the lyric to the db
         if (props.user) {
-            axios.delete(`${process.env.REACT_APP_SERVER_URL}/lyrics/${props.lyric.id}`, {
+            axios.delete(`https://lyrical-poetry.herokuapp.com/lyrics/${props.lyric.id}`, {
                 headers: {
                     "Authorization": `Bearer ${props.token}`
                 }

@@ -14,7 +14,7 @@ app.config['SECRET_KEY'] = 'mysecretkey'
 app.config['CORS_HEADERS'] = 'Content-Type'
 cors = CORS(app, resources={
     r'/*': {
-        'origins': 'http://localhost:3000'
+        'origins': 'https://erik-hei.github.io/lyrical/'
     }
 })
 

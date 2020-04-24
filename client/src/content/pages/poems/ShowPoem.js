@@ -14,7 +14,7 @@ export default function ShowPoem(props) {
 
     useEffect(() => {
         // axios call to get lyrics 
-        axios.get(`${process.env.REACT_APP_SERVER_URL}/poems/${id}`)
+        axios.get(`https://lyrical-poetry.herokuapp.com/poems/${id}`)
         .then(response => {
             if (response.data.error) {
                 setMessage(response.data.error);

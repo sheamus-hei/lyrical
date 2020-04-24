@@ -17,7 +17,7 @@ export default function Signup(props) {
   const handleSubmit = e => {
     e.preventDefault();
     let payload = {email, password, name};
-    axios.post(`${process.env.REACT_APP_SERVER_URL}/auth/signup`, payload)
+    axios.post(`https://lyrical-poetry.herokuapp.com/auth/signup`, payload)
     .then(response => {
       if (response.data.message) {
         props.setUserToken(null)
