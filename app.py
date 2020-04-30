@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from flask import Flask, jsonify, request, g
 from flask_sqlalchemy import SQLAlchemy
-from models import app, User, Lyric, Poem, get_or_create
+from models import User, Lyric, Poem, get_or_create
 from crud.user_crud import get_user, create_user, update_user
 from crud.poem_crud import get_all_poems, get_user_poems, get_poem, create_poem, update_poem, destroy_poem
 from crud.lyric_crud import get_lyric, create_lyric, edit_lyric, destroy_lyric
@@ -9,6 +9,14 @@ import requests
 from bs4 import BeautifulSoup
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer, BadSignature, SignatureExpired
 from flask_httpauth import HTTPTokenAuth
+
+app=Flask(__name__)
+app.config['CORS_HEADERS'] = 'Content-Type'
+cors = CORS(app, resources={
+    r'/*': {
+        'origins': 'https://erik-hei.github.io/lyrical/'
+    }
+})
 
 auth = HTTPTokenAuth('Bearer')
 
