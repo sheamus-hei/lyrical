@@ -19,7 +19,8 @@ export default function Signup(props) {
     let payload = {email, password, name};
     axios.post(`https://lyrical-poetry.herokuapp.com/auth/signup`, payload)
     .then(response => {
-      if (response.data.message) {
+      console.log("RESPONSE", response)
+      if (!response.data) {
         props.setUserToken(null)
       } else if (response.data.error) {
         props.setUserToken(null);
@@ -34,7 +35,7 @@ export default function Signup(props) {
   }
 
   if (props.user) {
-    return (<Redirect to="/profile" />);
+    return <Redirect to="/profile" />;
   }
 
   return (

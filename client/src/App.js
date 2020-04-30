@@ -32,7 +32,7 @@ function App() {
 
   return (
     <Router>
-      <div class="wrapper"> 
+      <div className="wrapper"> 
         <Header logout={() => setUserToken(null)} user={user} />
         <main>
           <Content songInfo={songInfo} setSongInfo={setSongInfo} 
