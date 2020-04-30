@@ -15,8 +15,10 @@
     "react-scripts": "3.4.1",
     "simple-oauth2": "^3.4.0"
   },
-  "proxy": "https://lyrical-poetry.herokuapp.com/",
+  "homepage": "https://erik-hei.github.io/lyrical",
   "scripts": {
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -b master -d build", 
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
