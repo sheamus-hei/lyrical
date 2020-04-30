@@ -12,7 +12,7 @@ from flask_httpauth import HTTPTokenAuth
 
 app=Flask(__name__)
 app.config['CORS_HEADERS'] = 'Content-Type'
-cors = CORS(app, resources={
+cors = CORS(app, support_credentials=True, resources={
     r'/*': {
         'origins': 'https://erik-hei.github.io'
     }
