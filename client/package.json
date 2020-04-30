@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
+    "gh-pages": "^2.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
@@ -18,7 +19,7 @@
   "homepage": "https://erik-hei.github.io/lyrical",
   "scripts": {
     "predeploy": "yarn run build",
-    "deploy": "gh-pages -b master -d build", 
+    "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
