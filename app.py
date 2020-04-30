@@ -9,6 +9,8 @@ import requests
 from bs4 import BeautifulSoup
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer, BadSignature, SignatureExpired
 from flask_httpauth import HTTPTokenAuth
+from flask_cors import CORS, cross_origin
+
 
 app=Flask(__name__)
 app.config['CORS_HEADERS'] = 'Content-Type'
@@ -54,6 +56,7 @@ def authenticate():
     return jsonify(user=user.as_dict(), token=token.decode('ascii'), status_code=200)
 
 @app.route('/auth/signup', methods=['POST'])
+@cross_origin(supports_credentials=True)
 def signup():
     return create_user(**request.json)
 
