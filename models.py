@@ -7,11 +7,10 @@ from flask_cors import CORS
 
 app=Flask(__name__)
 
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_ECHO'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/lyrical'
-app.config['SECRET_KEY'] = 'mysecretkey'
-app.config['CORS_HEADERS'] = 'Content-Type'
+#app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+#app.config['SQLALCHEMY_ECHO'] = True
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/lyrical'
+#app.config['CORS_HEADERS'] = 'Content-Type'
 cors = CORS(app, resources={
     r'/*': {
         'origins': 'https://erik-hei.github.io/lyrical/'
