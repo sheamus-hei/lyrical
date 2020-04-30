@@ -6,7 +6,7 @@ from flask_login import UserMixin
 from flask_cors import CORS
 
 app=Flask(__name__)
-
+app.config["SQLALCHEMY_DATABASE_URI"]="postgres://dcruhdnliqennn:a98d175ad3b5c9ac069f842be27bd197d76b6527eaef360cb96f71b9cc71dec5@ec2-18-206-84-251.compute-1.amazonaws.com:5432/dabs9moh7qn1bn"
 db = SQLAlchemy(app)
 app.app_context().push()
 
