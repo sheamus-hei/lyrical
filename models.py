@@ -4,8 +4,8 @@ from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from passlib.apps import custom_app_context as pwd_context
 from flask_login import UserMixin
 from flask_cors import CORS
-from app.app import app
 
+app=Flask(__name__)
 
 db = SQLAlchemy(app)
 app.app_context().push()
