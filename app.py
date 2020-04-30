@@ -12,7 +12,7 @@ from flask_httpauth import HTTPTokenAuth
 from flask_cors import CORS, cross_origin
 
 app.config['CORS_HEADERS'] = 'Content-Type'
-cors = CORS(app, support_credentials=True, resources={
+cors = CORS(app, resources={
     r'/*': {
         'origins': 'https://erik-hei.github.io'
     }
@@ -54,7 +54,6 @@ def authenticate():
     return jsonify(user=user.as_dict(), token=token.decode('ascii'), status_code=200)
 
 @app.route('/auth/signup', methods=['POST'])
-@cross_origin(supports_credentials=True)
 def signup():
     return create_user(**request.json)
 
