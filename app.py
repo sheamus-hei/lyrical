@@ -9,6 +9,7 @@ import requests
 from bs4 import BeautifulSoup
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer, BadSignature, SignatureExpired
 from flask_httpauth import HTTPTokenAuth
+<<<<<<< HEAD
 from flask_cors import CORS, cross_origin
 
 app.config['CORS_HEADERS'] = 'Content-Type'
@@ -17,6 +18,8 @@ cors = CORS(app, resources={
         'origins': 'https://erik-hei.github.io'
     }
 })
+=======
+>>>>>>> parent of c59c0ac6... Updates
 
 auth = HTTPTokenAuth('Bearer')
 

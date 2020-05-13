@@ -32,7 +32,11 @@ function App() {
 
   return (
     <Router>
+<<<<<<< HEAD
       <div className="wrapper"> 
+=======
+      <div class="wrapper"> 
+>>>>>>> parent of c59c0ac6... Updates
         <Header logout={() => setUserToken(null)} user={user} />
         <main>
           <Content songInfo={songInfo} setSongInfo={setSongInfo} 
