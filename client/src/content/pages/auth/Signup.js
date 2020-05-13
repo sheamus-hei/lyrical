@@ -19,12 +19,7 @@ export default function Signup(props) {
     let payload = {email, password, name};
     axios.post(`https://lyrical-poetry.herokuapp.com/auth/signup`, payload)
     .then(response => {
-<<<<<<< HEAD
-      console.log("RESPONSE", response)
-      if (!response.data) {
-=======
       if (response.data.message) {
->>>>>>> parent of c59c0ac6... Updates
         props.setUserToken(null)
       } else if (response.data.error) {
         props.setUserToken(null);
@@ -39,11 +34,7 @@ export default function Signup(props) {
   }
 
   if (props.user) {
-<<<<<<< HEAD
-    return <Redirect to="/profile" />;
-=======
     return (<Redirect to="/profile" />);
->>>>>>> parent of c59c0ac6... Updates
   }
 
   return (
