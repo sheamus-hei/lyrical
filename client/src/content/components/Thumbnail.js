@@ -9,7 +9,7 @@ export default function Thumbnail(props) {
 
     useEffect(() => {
         // use axios call to get author name 
-        axios.get(`https://lyrical-poetry.herokuapp.com/users/${props.authorId}`)
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${props.authorId}`)
         .then(response => {
             if (response.data.result) {
                 setAuthor(response.data.result.name)

@@ -11,7 +11,7 @@ export default function Profile(props) {
     useEffect(() => {
         // call server to get user's poems 
         if (props.user) {
-            axios.get(`https://lyrical-poetry.herokuapp.com/profile/${props.user.id}`, {
+            axios.get(`${process.env.REACT_APP_SERVER_URL}/profile/${props.user.id}`, {
                 headers: {
                     "Authorization": `Bearer ${props.token}`
                 }

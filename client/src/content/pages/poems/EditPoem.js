@@ -13,7 +13,7 @@ export default function EditPoem(props) {
     useEffect(() => {
         // axios call to get the poem at the id
         setMessage("");
-        axios.get(`https://lyrical-poetry.herokuapp.com/poems/${id}`)
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/poems/${id}`)
         .then(response => {
             if (response.data.error) {
                 setMessage(response.data.error);
@@ -27,7 +27,7 @@ export default function EditPoem(props) {
         }).catch(err => {
             console.log(err)
         })
-    }, [title, publicValue])
+    }, [title, publicValue, id])
 
     const deletePoem = e => {
         // axios call to delete poem

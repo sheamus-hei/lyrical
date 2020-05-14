@@ -2,6 +2,7 @@ bin
 lib
 include
 pyvenv.cfg
+.env
 
 client/node_modules
 client/.env

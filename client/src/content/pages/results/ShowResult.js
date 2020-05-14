@@ -10,7 +10,7 @@ export default function ShowResult(props) {
 
     useEffect(() => {
         if (props.songInfo && props.songInfo.link) {
-            axios.get(`https://lyrical-poetry.herokuapp.com/songs/${props.songInfo.link}`)
+            axios.get(`${process.env.REACT_APP_SERVER_URL}/songs/${props.songInfo.link}`)
             .then(response => {
                 if (response.data.message) {
                     setError(response.data.message);

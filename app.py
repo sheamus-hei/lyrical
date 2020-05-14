@@ -14,7 +14,7 @@ from flask_cors import CORS, cross_origin
 app.config['CORS_HEADERS'] = 'Content-Type'
 cors = CORS(app, resources={
     r'/*': {
-        'origins': 'https://erik-hei.github.io'
+        'origins': '*'
     }
 })
 

@@ -11,7 +11,7 @@ export default function AddLyric(props) {
     useEffect(() => {
         // do an axios call to get user poems
         if (props.user) {
-            axios.get(`https://lyrical-poetry.herokuapp.com/profile/${props.user.id}`, {
+            axios.get(`${process.env.REACT_APP_SERVER_URL}/profile/${props.user.id}`, {
                 headers: {
                     "Authorization": `Bearer ${props.token}`
                 }
@@ -56,7 +56,7 @@ export default function AddLyric(props) {
             let content = props.line;
             let path = props.songInfo.link;
             let order = 1;
-            axios.post(`https://lyrical-poetry.herokuapp.com/poems/${poemId}`, {  
+            axios.post(`${process.env.REACT_APP_SERVER_URL}/poems/${poemId}`, {  
                 song,
                 artist,
                 thumbnail,

@@ -8,7 +8,7 @@ export default function Poems(props) {
 
     useEffect(() => {
         // axios call to get all public poems
-        axios.get(`https://lyrical-poetry.herokuapp.com/poems`)
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/poems`)
         .then(response => {
             if (response.data.results) {
                 setPoems(response.data.results)

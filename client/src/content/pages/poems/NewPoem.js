@@ -19,7 +19,7 @@ export default function NewPoem(props) {
     const handleSubmit = e => {
         e.preventDefault();
         if (props.user) {
-            axios.post(`https://lyrical-poetry.herokuapp.com/profile/${props.user.id}`, {
+            axios.post(`${process.env.REACT_APP_SERVER_URL}/profile/${props.user.id}`, {
                 title,
                 publicValue
             }, {
