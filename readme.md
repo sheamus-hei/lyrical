@@ -12,7 +12,47 @@ Lyrical allows users to search for lyrics of their favorite songs and add indivi
 
 **APIs:** Genius API ([link](https://docs.genius.com/#/getting-started-h1))
 
-## MVP
+## Song Lyrics API
+
+This app also functions as an API to get song lyrics from Genius. The Genius API provides information about a song, but not the actual lyrics. You can use my API to get Genius song lyrics as a JSON by following this address format:
+
+|Description|Example|
+|-------|------|
+|1. Lyrical Poetry Heroku address| https://lyrical-poetry.herokuapp.com/songs/|
+|2. Author separated by dashes | nombe|
+|3. Song title separated by dashes | -miss-mirage|
+|4. "Lyrics" | -lyrics |
+
+#### Example: [https://lyrical-poetry.herokuapp.com/songs/nombe-miss-mirage-lyrics](https://lyrical-poetry.herokuapp.com/songs/nombe-miss-mirage-lyrics)
+
+## Installation Instructions
+
+Fork and clone this repo to your local library.
+
+### Back End: Flask
+
+1. Install python dependencies as listed in "requirements.txt" via `pip install -r requirements.txt`
+2. Make sure you have PSQL running (the default database will be "postgresql://localhost/lyrical")
+3. Enter the following commands to run the flask server:
+`export FLASK_APP=app.py`
+`export FLASK_ENV=development`
+`flask run`
+4. The server should now be running at the default port for flask is localhost:5000. 
+
+### Front End: React w/ Yarn
+
+1. Navigate into the client folder with `cd client`
+2. Install dependencies for yarn with `yarn`
+3. Create a .env file with `touch .env` and in it, add these lines:
+`REACT_APP_SERVER_URL="http://localhost:5000/"`
+`REACT_APP_CLIENT_ACCESS_TOKEN="YOUR TOKEN HERE"`
+4. To get an access token for the Genius API, create an account [here](https://genius.com/api-clients)
+5. Generate a client access token and copy/paste it into the .env file
+6. Run the client-side server with `yarn start`
+7. The browser will open up the client on localhost:3000. 
+
+
+## Development: MVP
 
 Create a web application using a React front end and Flask (python) back end that allows users to make poems and add song lyrics to them. 
 
