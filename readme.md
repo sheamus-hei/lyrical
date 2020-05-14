@@ -12,7 +12,6 @@ Lyrical allows users to search for lyrics of their favorite songs and add indivi
 
 **APIs:** Genius API ([link](https://docs.genius.com/#/getting-started-h1))
 
-<<<<<<< HEAD
 ## Song Lyrics API
 
 This app also functions as an API to get song lyrics from Genius. The Genius API provides information about a song, but not the actual lyrics. You can use my API to get Genius song lyrics as a JSON by following this address format:
@@ -54,9 +53,6 @@ Fork and clone this repo to your local library.
 
 
 ## Development: MVP
-=======
-## MVP
->>>>>>> parent of a02a9506... Updates
 
 Create a web application using a React front end and Flask (python) back end that allows users to make poems and add song lyrics to them. 
 
