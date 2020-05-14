@@ -82,8 +82,8 @@ export default function ShowPoem(props) {
         <div className="simple">
             {message}
             <div className="poem-header">
-                <div>
-                    <img className="music-note" src='../music-note.png' alt="music note" />
+                <div className="music-note">
+                    {/* <img className="music-note" src='../music-note.png' alt="music note" /> */}
                 </div>
                 <div className="poem-header-text">
                     <h1>{poem? poem.title : "Loading..."}</h1>

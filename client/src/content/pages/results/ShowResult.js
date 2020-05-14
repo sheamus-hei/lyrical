@@ -54,7 +54,7 @@ export default function ShowResult(props) {
                 <div className="result-text">
                     <h2>{props.songInfo.title}</h2>
                     <h3>by {props.songInfo.artist}</h3>
-                    <p className="basic-link"><a href={`https://genius.com/${props.songInfo.link}`}>View Lyrics on Genius.com</a></p>
+                    <p className="basic-link"><a href={`https://genius.com/${props.songInfo.link}`} target="_blank" rel="noopener noreferrer">View Lyrics on Genius.com</a></p>
                 </div>
             </div>
             <Fade in="true">

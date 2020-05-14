@@ -5,6 +5,8 @@
 
 Lyrical allows users to search for lyrics of their favorite songs and add individual lyrics to poems they have created. Essentially, a user can create poetry using different song lyrics.
 
+Known Issues: Edit Poem, Edit Profile features still under construction.
+
 ## Tech Stack
 **Front end:** React
 
