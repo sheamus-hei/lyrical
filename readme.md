@@ -33,13 +33,14 @@ Fork and clone this repo to your local library.
 
 ### Back End: Flask
 
-1. Install python dependencies as listed in "requirements.txt" via `pip install -r requirements.txt`
-2. Make sure you have PSQL running (the default database will be "postgresql://localhost/lyrical")
-3. Enter the following commands to run the flask server:
+1. To make and activate a virtual environment, use the following commands: `python3 -m venv lyrical_env` `. lyrical_env/bin/activate`
+2. Install python dependencies as listed in "requirements.txt" via `pip install -r requirements.txt`
+3. Make sure you have PSQL running (the default database will be "postgresql://localhost/lyrical")
+4. Enter the following commands to run the flask server:
 `export FLASK_APP=app.py`
 `export FLASK_ENV=development`
 `flask run`
-4. The server should now be running at the default port for flask is localhost:5000. 
+5. The server should now be running at the default port for flask is localhost:5000. 
 
 ### Front End: React w/ Yarn
 
