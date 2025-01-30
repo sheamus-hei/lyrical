@@ -197,4 +197,4 @@ Create a web application using a React front end and Flask (python) back end tha
 * Being able to drag and drop lyrics into a particular order
 * Using pandas to find the most commonly cited artist and song, and display this information on the homepage
 
-© Erik (dj) Heikkila 2020 
+© Sheamus Heikkila 2020 
